@@ -1,5 +1,6 @@
 package Game;
 public class Misc{
+	//Returns true if the roll is below the chance
 	public boolean percentRoller(int chance) {
 		int roll = (int) (Math.random()*100)+1;
 		return roll<=chance;
