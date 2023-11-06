@@ -44,20 +44,10 @@ public class Player {
 	 */
 	
 	public int slash() {
-    int dmg = 50;
-		boolean isCrit = m.percentRoller(20);
-    if(isCrit){
-      dmg*=2;
-    }
-    return dmg;
+   		return 50*m.crit(20,2);
 	}
 	public int stab() {
-		int dmg = 40;
-		boolean isCrit = m.percentRoller(50);
-    if(isCrit){
-      dmg*=3;
-    }
-    return dmg;
+    		return 40*m.crit(50,3);
 	}
 	
 }
