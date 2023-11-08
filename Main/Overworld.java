@@ -59,7 +59,8 @@ public class Overworld {
 		
 	}
 	
-	public void greenLand () {
+	public void grassLand () {
+		System.out.println("Congratulations, you reached the grasslands");
 		
 	}
 }
