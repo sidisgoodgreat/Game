@@ -48,6 +48,14 @@ public class Player {
 			+"\nMagical Resistance: "+magResDisplay()
 			+"\nPhysical Resistance: "+physResDisplay();
 	}
+	public String magResDisplay(){
+		double percent = (1.0-physRes)*100;
+		return percent+"%";
+	}
+	public String physResDisplay(){
+		double percent = (1.0-magRes)*100;
+		return percent+"%";
+	}
 	
 	//Level Up Methods
 	public void levelUp(){
@@ -67,14 +75,7 @@ public class Player {
 			physRes-=0.05;
 		}
 	}
-	public String magResDisplay(){
-		double percent = (1.0-physRes)*100;
-		return percent+"%";
-	}
-	public String physResDisplay(){
-		double percent = (1.0-magRes)*100;
-		return percent+"%";
-	}
+	
 	/*
 	 * Moveset
 	 * Slash
