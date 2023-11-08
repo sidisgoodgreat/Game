@@ -47,6 +47,7 @@ public class Player {
 			+"\nHP: "+hp
 			+"\nMagical Resistance: "+magResDisplay()
 			+"\nPhysical Resistance: "+physResDisplay();
+		return s;
 	}
 	public String magResDisplay(){
 		double percent = (1.0-physRes)*100;
