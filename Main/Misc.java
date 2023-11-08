@@ -12,5 +12,16 @@ public class Misc{
 			return 1;
 		}
 	}
+	public int intChoose(char minRange, char maxRange) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter an single-digit integer");
+		System.out.println("("+minRange+","+maxRange+")");
+		char choice = (s.next()).charAt(0);
+		while(choice<minRange||choice>maxRange) {
+			System.out.println("Invalid choice, please input another integer");
+			choice = (s.next()).charAt(0);
+		}
+		return ((int)choice)-48;
+	}
   
 }
