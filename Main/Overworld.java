@@ -70,7 +70,7 @@ public class Overworld {
 			if(movement == "forward") {
 				pos = pos + 1;
 				if(pos % 2 == 0) {
-						
+					Encounter("grassland");	
 				}
 			}
 			if(movement == "backward") {
