@@ -1,17 +1,19 @@
 package Main;
-
-
+import java.util.Scanner;
 public class Overworld {
 	private String area;
 	private int step;
-	
-	public void promptUser(int lvl, String a) {
-
+	private int lvl;
+	private int pos;
+	public String promptUser(int lvl, String pos) {
+		Scanner scan = new Scanner(System.in);
 		
 		System.out.println("On your quest to reach level 100...");
-		System.out.println("Currently you're level " + lvl + "and you're at " + a);
+		System.out.println("Currently you're level " + lvl + "and you're at " + pos);
 		System.out.println("Do you wanna go forward? Or backward...?");
 		System.out.println("^ forward | backward v");
+		String movement = scan.nextLine();
+		return movement;
 	}
 	
 	public String navigateArea(int step) {
@@ -59,8 +61,23 @@ public class Overworld {
 		
 	}
 	
-	public void grassLand () {
+	public void grassLand (int pos, int lvl) {
+		this.pos = pos;
+		this.lvl = lvl;
 		System.out.println("Congratulations, you reached the grasslands");
+		while(pos < 10) {
+			promptUser(lvl, pos);
+			if(movement == "forward") {
+				pos = pos + 1;
+				if(pos % 2 == 0) {
+						
+				}
+			}
+			if(movement == "backward") {
+				pos = pos - 1;
+			}
+			
+		}
 		
 	}
 }
