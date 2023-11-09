@@ -7,10 +7,8 @@ public class Enemy {
 	private String area;
 	
 	private EnemyGrass eg = new EnemyGrass();
-	//private EnemyForest ef = new EnemyForest();
-	//private EnemyCaves ec = new EnemyCaves();
+	//private EnemyDesert ed = new EnemyDesert();
 	//private EnemyHeck eh = new EnemyHeck();
-	//private EnemyNoNo en = new EnemyNoNo();
 	
 	
 	public Enemy(int areaInit) {
@@ -27,33 +25,19 @@ public class Enemy {
 			magRes=eg.getMagRes();
 			type=eg.getType();
 		} else if (areaInit > 10) {
-			area = "dForest";
+			area = "desert";
 			//name=ef.getName();
 			//hp=ef.getHP();
 			//physRes=ef.getPhysRes();
 			//magRes=ef.getMagRes();
 			//type=ef.getType();
-		} else if (areaInit > 15) {
-			area = "caves";
-			//name=ec.getName();
-			//hp=ec.getHP();
-			//physRes=ec.getPhysRes();
-			//magRes=ec.getMagRes();
-			//type=ec.getType();
-		} else if (areaInit > 20) {
-			area = "heck";
-			//name=ef.getName();
-			//hp=ef.getHP();
-			//physRes=ef.getPhysRes();
-			//magRes=ef.getMagRes();
-			//type=ef.getType();
-		} else if (areaInit > 25) {
-			area = "nono";
-			//name=en.getName();
-			//hp=en.getHP();
-			//physRes=en.getPhysRes();
-			//magRes=en.getMagRes();
-			//type=en.getType();
+		}  else if (areaInit > 15) {
+			area = "under";
+			//name=eu.getName();
+			//hp=eu.getHP();
+			//physRes=eu.getPhysRes();
+			//magRes=eu.getMagRes();
+			//type=eu.getType();
 		}
 	}
 	public String getName() {
@@ -87,6 +71,10 @@ public class Enemy {
 		dmg=0;
 		if(area.equals("gLands")) {
 			dmg=eg.wholeMoves(type);
+		} else if(area.equals("desert")){
+			//dmg=ed.wholeMoves(type);
+		}else if(area.equals("desert")){
+			//dmg=eu.wholeMoves(type);
 		}
 		return dmg;
 	}

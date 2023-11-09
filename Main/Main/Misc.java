@@ -25,5 +25,8 @@ public class Misc{
 		}
 		return ((int)choice)-48;
 	}
+	public void line(){
+		System.out.print("\n---------------\n");
+	}
   
 }
