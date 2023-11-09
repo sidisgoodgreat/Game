@@ -29,19 +29,6 @@ public class EnemyGrass {
 			physRes=1;
 		}
 	}
-	public EnemyGrass(int type) {
-		if(type==1) {//Slime
-			name="Slime";
-			hp=5;
-			magRes=1;
-			physRes=1;
-		}else if(type==2) {//Wolf
-			name="Wolf";
-			hp=3;
-			magRes=1;
-			physRes=1;
-		} 
-	}
 	public String getName() {
 		return name;
 	}
