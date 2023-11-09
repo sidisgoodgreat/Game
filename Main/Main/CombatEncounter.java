@@ -1,4 +1,4 @@
-package Game;
+package Main;
 import java.util.Scanner;
 
 public class CombatEncounter {
