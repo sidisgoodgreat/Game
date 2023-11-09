@@ -19,14 +19,10 @@ public class Driver {
 				
 				String input = main.promptUser(player1.getLevel(), main.navigateArea() );
 				
-				
 				if (input.equals( "^")) {
 					main.addStep();
-				} else if (input.equals("v")) {
-					if (main.getStep() > 0) {
-						main.subStep();
-					} 
-					
+				} else if (input.equals("v")&&main.getStep() > 0) {
+					main.subStep();
 				}
 	
 				// add rando chance of fight and all that stuff here
