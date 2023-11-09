@@ -94,5 +94,10 @@ public class Player {
 	public int stab() {
     		return 40*m.crit(50,3);
 	}
-	
+	public int fireball() {
+		return 50 * m.crit(20,2);
+	}
+	public int heal () {
+		return hp+=10;
+	}
 }
