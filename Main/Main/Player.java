@@ -3,12 +3,13 @@ package Main;
 import java.util.Scanner;
 public class Player {
 	private String name;
+	private String dmgType;
 	private int hp=20;
 	private int maxHP=20;
 	private int level=1;
 	private int xp;
 	private int dmgMult=1;
-	private double physRes = 1;
+	private double physRes=1;
 	private double magRes=1;
 	
 	//constructor
@@ -78,12 +79,24 @@ public class Player {
   	}
 	//Damage Scaling?
 	public void levelUp(){
-		System.out.println("You leveled up!");
-		maxHP+=maxHP/4;
-		hp=maxHP;
-		level++;
-		dmgMult/=(dmgMult*4);
-		xp-=100;
+		int levelCount=0;
+		while(xp>=100){
+			xp-=100;
+			levelCount++;
+		}
+		String levelUpString = "You leveled up "+levelCount+"time"
+		if(levelCount>1){
+			levelUpString+="s!";
+		} else {
+			levelUpString+="!";
+		}
+		for(levelCount;levelCount>0;levelCount--){
+			maxHP+=maxHP/4;
+			hp=maxHP;
+			level++;
+			dmgMult/=(dmgMult*4);
+			xp-=100;
+		}
   	}
 	public void resChange(){
 		System.out.println("Choose resistance to raise"+
