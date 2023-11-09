@@ -67,7 +67,7 @@ public class Player {
 		level++;
 		
   	}
-	public void resChange(int level){
+	public void resChange(){
 		System.out.println("Choose resistance to raise"+
 				  "\n0: Magical"+
 				  "\n1: Physical");
