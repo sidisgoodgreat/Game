@@ -3,8 +3,10 @@ package Main;
 import java.util.Scanner;
 public class Player {
 	private String name;
-	private int hp=100;
+	private int hp=20;
+	private int maxHP=20;
 	private int level=1;
+	private int xp;
 	private int dmg;
 	private double physRes = 1;
 	private double magRes=1;
@@ -28,6 +30,9 @@ public class Player {
 	public int getLevel() {
 		return level;
 	}
+	public int getXP(){
+		return xp;
+	}
 	public int getDMG() {
 		return dmg;
 	}
@@ -37,6 +42,9 @@ public class Player {
 	}
 	public void setLevel(int init) {
 		level=init;
+	}
+	public void setXP(int init){
+		xp=init;
 	}
 	public void setDMG(int init) {
 		dmg=init;
@@ -61,11 +69,19 @@ public class Player {
 	}
 	
 	//Level Up Methods
+	public void levelCheck() {
+		//Max level is 20, and xp to level up is 100
+    		if((level < 21)&&(xp >= 100)) {
+			levelUp();
+        		resChange();
+    		}
+  	}
 	public void levelUp(){
 		System.out.println("You leveled up!");
-		hp+=hp/4;
+		maxHP+=maxHP/4;
+		hp=maxHP;
 		level++;
-		
+		xp-=100;
   	}
 	public void resChange(){
 		System.out.println("Choose resistance to raise"+
@@ -129,14 +145,4 @@ public class Player {
 		}
 		
 	}
-	public void levelUp() {
-    		Scanner scan = new Scanner(System.in);
-    		//placehold for xp
-    		int xp;
-    		int level = player.getLevel();
-
-    		if((level < 21)&&(xp >= 100)) {
-        		player.resChange();
-    		}
-  	}
 }
