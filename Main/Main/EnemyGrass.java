@@ -1,4 +1,4 @@
-package csaProject;
+package Main;
 
 public class EnemyGrass {
 	/*
@@ -35,6 +35,8 @@ public class EnemyGrass {
 			physRes=1;
 		}
 	}
+	
+	
 	public EnemyGrass(int type) {
 		if(type==1) {//Slime
 			name="Slime";

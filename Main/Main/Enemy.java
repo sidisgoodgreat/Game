@@ -1,4 +1,4 @@
-package Game;
+package Main;
 
 public class Enemy {
 	private String name;
@@ -14,7 +14,12 @@ public class Enemy {
 	
 	
 	public Enemy(int areaInit) {
+		if (areaInit == 0) {
+			name = "nothing";
+		}
 		if (areaInit < 5) {
+			
+
 			area = "gLands";
 			name=eg.getName();
 			hp=eg.getHP();
@@ -51,7 +56,7 @@ public class Enemy {
 			//type=en.getType();
 		}
 	}
-		public String getName() {
+	public String getName() {
 		return name;
 	}
 	public int getHP() {

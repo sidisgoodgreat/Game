@@ -45,12 +45,12 @@ public class Driver {
 					System.out.println("Time to come back stronger...");
 				}
 				
-				// to do: add an ending!!! and maybe an introduction cus we cool like that B )
 		
 			}
 			
-			System.out.println("\nSo the big boss was yourself...");
-			System.out.println("Sounds reasonable!");
+			// Peak ending ik ik i love cliches
+			System.out.println("\nSo the big final boss was yourself...");
+			System.out.println("Wow! What a twist!");
 			System.out.println("You glance back to the world you once journeyed so hard across...");
 			System.out.println("It is in ruins.");
 			System.out.println("Because of you.");

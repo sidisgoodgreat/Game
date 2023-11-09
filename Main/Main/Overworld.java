@@ -1,5 +1,7 @@
 package Main;
 import java.util.Scanner;
+
+
 public class Overworld {
 	private String area;
 	private int step;
@@ -17,21 +19,34 @@ public class Overworld {
 		return movement;
 	}
 	
+	/**
+	 * Checks what area player is in
+	 * Then plays a function that randomly has you encounter area-centric enemies
+	 * If you do you get cool ascii art (string manipulation ez)
+	 */
 	public void rolling() {
-		Encounter enc = new Encounter();
-		String enemy = "nothing";
+		
+
 		if (area.equals("Grasslands")) {
-			enemy = enc.encounterGrass(enc.randomize());
+			System.out.println("As you venture in the lands that you call... home...\n");
+			
 			
 		} else if (area.equals("Desert")) {
-			enemy = enc.encounterDesert(enc.randomize());
+			System.out.println("As you wander around this relentless, scorching stove of an area...\n");
 			
 		} else if (area.equals("Underworld")) {
-			enemy = enc.encounterUnder(enc.randomize(), step);
+			System.out.println("As you carry your unyielding determination towards the light within the depths of hell...\n");
 		}
 		
+		Enemy enc = new Enemy(-1);
 		
-		if (!enemy.equals("nothing")) {
+		if ( (int)(Math.random()*2)+1 == 1){
+			enc = new Enemy(step);
+		} 
+		
+
+		
+		if (!enc.equals("nothing")) {
 			for (int i = 0; i <= 11; i++) {
 				String bar = "@@@@@@@@@@@@";
 				System.out.println(bar.substring(0,i) + "*" + bar.substring(i));
@@ -47,8 +62,17 @@ public class Overworld {
 				System.out.println(bar.substring(0,i) + "*" + bar.substring(i));
 			}
 		}
+		
+		String name = enc.getName();
+		
 		System.out.println();
-		System.out.println("You encounter " + enemy + "!" );
+		if (!name.equals("nothing") || !name.equals("yourself")) {
+			System.out.println("You encounter a " + name + "!" );
+		} else {
+			System.out.println("You encounter " + name + "!" );
+		}
+		
+		//Battle.fight(enc);
 	}
 	
 	public String navigateArea() {
