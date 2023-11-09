@@ -28,11 +28,11 @@ public class Enemy {
 			//type=ef.getType();
 		}  else if (areaInit > 15) {
 			area = "under";
-			//name=ef.getName();
-			//hp=ef.getHP();
-			//physRes=ef.getPhysRes();
-			//magRes=ef.getMagRes();
-			//type=ef.getType();
+			//name=eu.getName();
+			//hp=eu.getHP();
+			//physRes=eu.getPhysRes();
+			//magRes=eu.getMagRes();
+			//type=eu.getType();
 		}
 	}
 		public String getName() {
@@ -66,6 +66,10 @@ public class Enemy {
 		dmg=0;
 		if(area.equals("gLands")) {
 			dmg=eg.wholeMoves(type);
+		} else if(area.equals("desert")){
+			//dmg=ed.wholeMoves(type);
+		}else if(area.equals("desert")){
+			//dmg=eu.wholeMoves(type);
 		}
 		return dmg;
 	}
