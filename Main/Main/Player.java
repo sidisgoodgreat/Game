@@ -87,17 +87,46 @@ public class Player {
 	 *Resistances
 	 *
 	 */
-	
+	public int moveRunner(int choice) {
+		int dmg=0;
+		if(choice==0) {
+			dmgType=type0;
+			dmg=slash();
+		}else if(choice==1) {
+			dmgType=type1;
+			dmg=stab();
+		}else if(choice==2) {
+			dmgType=type2;
+			dmg=fireball();
+		} else {
+			drinkPot();
+		}
+		return dmg;
+	}
+	String type0="phys";
 	public int slash() {
-   		return 50*m.crit(20,2);
+   		return 1*m.crit(20,2);
 	}
+	String type1="phys";
 	public int stab() {
-    		return 40*m.crit(50,3);
+		if(m.percentRoller(60)) {
+			return 2*m.crit(50,3);
+		} else {
+			return 0;
+		}		
 	}
+	String type2="magi";
 	public int fireball() {
-		return 50 * m.crit(20,2);
+		return 3;
 	}
-	public void heal () {
-		hp+=10;
+	String type3="self";
+	public void drinkPot() {
+		if(hpPotCount>0) {
+			hp+=5;
+			hpPotCount--;
+		} else {
+			System.out.println("out of pots!");
+		}
+		
 	}
 }
