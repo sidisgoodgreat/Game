@@ -8,11 +8,8 @@ public class LevelingSystem {
     int xp;
     int level = player.getLevel();
 
-    if(level < 21) {
-      if(xp >= 100) {
+    if((level < 21)&&(xp >= 100)) {
         player.resChange();
-      }
     }
   }
   }
-}
