@@ -97,7 +97,7 @@ public class Player {
 	public int fireball() {
 		return 50 * m.crit(20,2);
 	}
-	public int heal () {
-		return hp+=10;
+	public void heal () {
+		hp+=10;
 	}
 }
