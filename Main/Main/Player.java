@@ -3,10 +3,13 @@ package Main;
 import java.util.Scanner;
 public class Player {
 	private String name;
-	private int hp=100;
+	private String dmgType;
+	private int hp=20;
+	private int maxHP=20;
 	private int level=1;
-	private int dmg;
-	private double physRes = 1;
+	private int xp;
+	private int dmgMult=1;
+	private double physRes=1;
 	private double magRes=1;
 	
 	//constructor
@@ -28,8 +31,14 @@ public class Player {
 	public int getLevel() {
 		return level;
 	}
+	public int getXP(){
+		return xp;
+	}
 	public int getDMG() {
 		return dmg;
+	}
+	public int getDmgType() {
+		return dmgType;
 	}
 	//Mutator methods
 	public void setHP(int init) {
@@ -37,6 +46,9 @@ public class Player {
 	}
 	public void setLevel(int init) {
 		level=init;
+	}
+	public void setXP(int init){
+		xp=init;
 	}
 	public void setDMG(int init) {
 		dmg=init;
@@ -61,11 +73,33 @@ public class Player {
 	}
 	
 	//Level Up Methods
+	public void levelCheck() {
+		//Max level is 20, and xp to level up is 100
+    		if((level < 21)&&(xp >= 100)) {
+			levelUp();
+        		resChange();
+    		}
+  	}
+	//Damage Scaling?
 	public void levelUp(){
-		System.out.println("You leveled up!");
-		hp+=hp/4;
-		level++;
-		
+		int levelCount=0;
+		while(xp>=100){
+			xp-=100;
+			levelCount++;
+		}
+		String levelUpString = "You leveled up "+levelCount+"time"
+		if(levelCount>1){
+			levelUpString+="s!";
+		} else {
+			levelUpString+="!";
+		}
+		for(levelCount;levelCount>0;levelCount--){
+			maxHP+=maxHP/4;
+			hp=maxHP;
+			level++;
+			dmgMult/=(dmgMult*4);
+			xp-=100;
+		}
   	}
 	public void resChange(){
 		System.out.println("Choose resistance to raise"+
@@ -105,38 +139,28 @@ public class Player {
 	}
 	String type0="phys";
 	public int slash() {
-   		return 1*m.crit(20,2);
+   		return 1*m.crit(20,2)*dmgMult;
 	}
 	String type1="phys";
 	public int stab() {
 		if(m.percentRoller(60)) {
-			return 2*m.crit(50,3);
+			return 2*m.crit(50,3)*dmgMult;
 		} else {
 			return 0;
 		}		
 	}
 	String type2="magi";
 	public int fireball() {
-		return 3;
+		return 3*dmgMult;
 	}
 	String type3="self";
 	public void drinkPot() {
 		if(hpPotCount>0) {
-			hp+=5;
+			hp+=5*dmgMult;
 			hpPotCount--;
 		} else {
 			System.out.println("out of pots!");
 		}
 		
 	}
-	public void levelUp() {
-    		Scanner scan = new Scanner(System.in);
-    		//placehold for xp
-    		int xp;
-    		int level = player.getLevel();
-
-    		if((level < 21)&&(xp >= 100)) {
-        		player.resChange();
-    		}
-  	}
 }
