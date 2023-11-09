@@ -15,19 +15,29 @@ public class Driver {
 			Player player1 = new Player(name);
 			
 			
-			while (main.getStep() < 100) {
+			while (main.getStep() <= 15) {
 				
-				main.promptUser(player1.getLevel(), main.navigateArea( main.getStep() ) );
+				String input = main.promptUser(player1.getLevel(), main.navigateArea() );
 				
-				if (sc.next() == "^") {
+				
+				if (input.equals( "^")) {
 					main.addStep();
-				} else if (sc.next() == "v") {
-					main.subStep();
+				} else if (input.equals("v")) {
+					if (main.getStep() > 0) {
+						main.subStep();
+					} 
+					
 				}
 	
 				// add rando chance of fight and all that stuff here
+				if (main.getStep() > 0) {
+					main.rolling();
+					main.navigateArea();
+				} else {
+					System.out.println("\nYou cannot go back any further!");
+				}
+
 				// if lost/won... get back here to this class!
-				
 				// if you lose you restart hahahaha
 				if (player1.getHP() <= 0) {
 					main.setStep(0);
@@ -38,5 +48,13 @@ public class Driver {
 				// to do: add an ending!!! and maybe an introduction cus we cool like that B )
 		
 			}
+			
+			System.out.println("\nSo the big boss was yourself...");
+			System.out.println("Sounds reasonable!");
+			System.out.println("You glance back to the world you once journeyed so hard across...");
+			System.out.println("It is in ruins.");
+			System.out.println("Because of you.");
+			System.out.println("Maybe losing yourself in the underworld was a bad idea after all!\n");
+			System.out.println("-- END --");
 		}
 }

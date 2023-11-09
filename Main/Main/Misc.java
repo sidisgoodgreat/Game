@@ -1,4 +1,6 @@
 package Main;
+
+import java.util.Scanner;
 public class Misc{
 	//Returns true if the roll is below the chance
 	public boolean percentRoller(int chance) {
