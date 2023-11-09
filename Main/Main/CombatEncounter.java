@@ -37,10 +37,11 @@ public class CombatEncounter {
 			}
 		}
 		if(playerAlive()) {
-			a
+			System.out.println("You win!");
 		}
 	}
 	public void playerCombatCycle() {
+		System.out.print(p);
 		System.out.println("Choose your move!");
 		System.out.println(p.getMoveDisplay());
 		damageDealer(false,p.moveRunner(m.intChoose('0', '3')));
@@ -56,9 +57,8 @@ public class CombatEncounter {
 		}
 	}
 	public boolean isAlive() {
-		return (p.getHP()>=0)||(e.getHP()>=0);
+		return (p.getHP()>0)&&(e.getHP()>0);
 	}
 	public boolean playerAlive() {
 		return (p.getHP()>=0);
 	}
-}
