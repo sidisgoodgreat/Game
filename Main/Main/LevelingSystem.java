@@ -12,4 +12,4 @@ public class LevelingSystem {
         player.resChange();
     }
   }
-  }
+}
