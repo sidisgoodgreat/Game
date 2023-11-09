@@ -7,7 +7,7 @@ public class Player {
 	private int maxHP=20;
 	private int level=1;
 	private int xp;
-	private int dmg;
+	private int dmgMult=1;
 	private double physRes = 1;
 	private double magRes=1;
 	
@@ -76,11 +76,13 @@ public class Player {
         		resChange();
     		}
   	}
+	//Damage Scaling?
 	public void levelUp(){
 		System.out.println("You leveled up!");
 		maxHP+=maxHP/4;
 		hp=maxHP;
 		level++;
+		dmgMult/=(dmgMult*4);
 		xp-=100;
   	}
 	public void resChange(){
@@ -121,24 +123,24 @@ public class Player {
 	}
 	String type0="phys";
 	public int slash() {
-   		return 1*m.crit(20,2);
+   		return 1*m.crit(20,2)*dmgMult;
 	}
 	String type1="phys";
 	public int stab() {
 		if(m.percentRoller(60)) {
-			return 2*m.crit(50,3);
+			return 2*m.crit(50,3)*dmgMult;
 		} else {
 			return 0;
 		}		
 	}
 	String type2="magi";
 	public int fireball() {
-		return 3;
+		return 3*dmgMult;
 	}
 	String type3="self";
 	public void drinkPot() {
 		if(hpPotCount>0) {
-			hp+=5;
+			hp+=5*dmgMult;
 			hpPotCount--;
 		} else {
 			System.out.println("out of pots!");
