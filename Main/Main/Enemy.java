@@ -51,6 +51,33 @@ public class Enemy {
 			//type=en.getType();
 		}
 	}
+		public String getName() {
+		return name;
+	}
+	public int getHP() {
+		return hp;
+	}
+	public double getMagRes() {
+		return magRes;
+	}
+	public double getPhysRes() {
+		return physRes;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setName(String init) {
+		name=init;
+	}
+	public void setHP(int init) {
+		hp=init;
+	}
+	public void setMagRes(double init) {
+		magRes=init;
+	}
+	public void setPhysRes(double init) {
+		physRes=init;
+	}
 	public int moveRunner() {
 		dmg=0;
 		if(area.equals("gLands")) {
