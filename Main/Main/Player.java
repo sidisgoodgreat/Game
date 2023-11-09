@@ -37,6 +37,9 @@ public class Player {
 	public int getDMG() {
 		return dmg;
 	}
+	public int getDmgType() {
+		return dmgType;
+	}
 	//Mutator methods
 	public void setHP(int init) {
 		hp=init;
