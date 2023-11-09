@@ -18,13 +18,14 @@ public class Driver {
 			while (main.getStep() <= 15) {
 				
 				String input = main.promptUser(player1.getLevel(), main.navigateArea() );
-				
+				while(!(input.equals("^")||input.equals("v"))){
+					System.out.println("Invalid, please try again");
+					input = sc.next();
+				}
 				if (input.equals( "^")) {
 					main.addStep();
 				} else if (input.equals("v")&&main.getStep() > 0) {
 					main.subStep();
-				} else {
-					//Did not input eihter of them, then need to redo the choose cycle?
 				}
 	
 				// add rando chance of fight and all that stuff here
