@@ -6,7 +6,6 @@ public class CombatEncounter {
 	private Misc m = new Misc();
 	private Enemy e;
 	private Player p;
-	
 	public CombatEncounter(Enemy e, Player p) {
 		this.p = p;
 		this.e=e;
@@ -46,12 +45,12 @@ public class CombatEncounter {
 		System.out.println(p);
 		System.out.println("Choose your move!");
 		System.out.println(p.getMoveDisplay());
-		damageDealer(false,p.moveRunner(m.intChoose('0', '3')));
+		damageDealer(false,p.moveRunner(m.intChoose('0', '3')),p.getDmgType());
 	}
 	public void enemyCombatCycle() {
 		damageDealer(true,e.moveRunner());
 	}
-	public void damageDealer(boolean isPlayer, int dmg) {
+	public void damageDealer(boolean isPlayer, int dmg,String dmgType) {
 		if(isPlayer) {
 			p.setHP(p.getHP()-dmg);
 		} else {
