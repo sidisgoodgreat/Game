@@ -14,7 +14,7 @@ public class EnemyGrass {
 	private Misc m = new Misc();
 	
 	public EnemyGrass() {
-		type=(int)(Math.random()*3)+1;
+		type=(int)(Math.random()*2);
 		if(type==1) {//Slime
 			name="Slime";
 			hp=5;
@@ -25,12 +25,6 @@ public class EnemyGrass {
 			name="Wolf";
 			hp=3;
 			maxHP=3;
-			magRes=1;
-			physRes=1;
-		} else {//Bandit
-			name="Bandit";
-			hp=7;
-			maxHP=7;
 			magRes=1;
 			physRes=1;
 		}
@@ -46,12 +40,7 @@ public class EnemyGrass {
 			hp=3;
 			magRes=1;
 			physRes=1;
-		} else {//Bandit
-			name="Bandit";
-			hp=7;
-			magRes=1;
-			physRes=1;
-		}
+		} 
 	}
 	public String getName() {
 		return name;
@@ -88,8 +77,6 @@ public class EnemyGrass {
 			dmg=slimeMoves();
 		} else if(type==2) {
 			dmg=wolfMoves();
-		} else {
-			dmg=banditMoves();
 		}
 		return dmg;
 	}
@@ -130,22 +117,6 @@ public class EnemyGrass {
 		} else {
 			return 0;
 		}
-	}
-	//Bandit Attacks: Stab, Steal
-	public int banditMoves() {
-		int dmg=0;
-		if(m.percentRoller(60)) {
-			dmg=banditStab();
-		} else {
-			sendSteal = banditSteal();
-		}
-		return dmg;
-	}
-	public int banditStab() {
-		return 5;
-	}
-	public boolean banditSteal() {
-		return m.percentRoller(30);
 	}
 	//stuff?
 }
