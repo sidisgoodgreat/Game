@@ -38,6 +38,8 @@ public class CombatEncounter {
 		}
 		if(playerAlive()) {
 			System.out.println("You win!");
+		} else {
+			System.out.println("You died!");
 		}
 	}
 	public void playerCombatCycle() {
