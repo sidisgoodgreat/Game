@@ -79,8 +79,8 @@ public class EnemyDesert {
 		return 5;
 	}
 	public void golemDefense() {
-		magRes++;
-    		physRes++;
+		magRes-=0.1;
+    		physRes-=0.1;
 	}
 	//SandWorm Attacks
 	public int sandwormMoves() {
