@@ -50,7 +50,7 @@ public class CombatEncounter {
 			playerWin=false;
 		}
 		p.setHP(p.getMaxHP());
-		p.setXP(p.getXP()+xpGet);
+		p.addXP(xpGet);
 		return playerWin;
 	}
 	public void playerCombatCycle() {
