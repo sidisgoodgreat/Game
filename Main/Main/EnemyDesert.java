@@ -9,7 +9,6 @@ public class EnemyDesert {
 	private String name;
 	private int type,hp,maxHP;
 	private double magRes,physRes;
-	private boolean sendSteal;
 	private Misc m = new Misc();
 	
 	public EnemyDesert() {
