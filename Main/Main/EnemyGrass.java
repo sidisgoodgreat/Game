@@ -5,7 +5,6 @@ public class EnemyGrass {
 	 * Types of Enemies
 	 * Slime
 	 * Wolf
-	 * Bandit
 	 */
 	private String name,dmgType;
 	private int type,hp,maxHP, xp;
