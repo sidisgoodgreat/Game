@@ -109,7 +109,7 @@ public class EnemyDesert {
 		for (int i = 0; i < 3; i++) {
         		totalDamage += 2;
     		}
-    	return totalDamage;
+    		return totalDamage;
     	}
 	public int sandwormBite() {
 		if(m.percentRoller(50)) {
