@@ -84,8 +84,13 @@ public class EnemyUnderworld {
 		return 6;
 	}
 	public int demonCurse () {
-		System.out.println("The demon cursed you!");
-		return 1;
+		if (m.percentRoller (30)) {
+			System.out.println("The demon cursed you!");
+			return 20;
+		} else {
+			System.out.println("The demon tried to curse you but missed!");
+			return 0;
+		}
 	}
 	
 	// attack on yourself: slash/fireball
