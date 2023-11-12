@@ -6,7 +6,7 @@ public class EnemyDesert {
 	 * golem
 	 * sandworm
 	 */
-	private String name;
+	private String name, dmgType;
 	private int type,hp,maxHP;
 	private double magRes,physRes;
 	private Misc m = new Misc();
@@ -19,16 +19,21 @@ public class EnemyDesert {
 			maxHP=4;
 			magRes=1;
 			physRes=0.75;
+			dmgType=golemType;
 		}else if (type ==2){//sandworm
 			name="sandworm";
 			hp=5;
 			maxHP=5;
 			magRes=1;
 			physRes=1;
+			dmgType=sandwormType;
 		} 
 	}
 	public String getName() {
 		return name;
+	}
+	public String getDmgType(){
+		return dmgType;
 	}
 	public int getHP() {
 		return hp;
@@ -66,6 +71,7 @@ public class EnemyDesert {
 		return dmg;
 	}
 	//Golem Attacks
+	String golemType="phys";
 	public int golemMoves() {
 		int dmg=0;
 		if(m.percentRoller(60)||hp==maxHP) {
@@ -82,6 +88,7 @@ public class EnemyDesert {
     		physRes-=0.05;
 	}
 	//SandWorm Attacks
+	String sandwormType="phys";
 	public int sandwormMoves() {
 		int dmg = 0;
 		if(m.percentRoller(40)) {
