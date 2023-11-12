@@ -83,11 +83,11 @@ public class Overworld {
 	
 	public String navigateArea() {
 		if (step < 5) {
-			area = "Grasslands";
+			setArea("Grasslands");
 		} else if (step < 10) {
-			area = "Desert";
+			setArea("Desert");
 		} else if (step < 15) {
-			area = "Underworld";
+			setArea("Underworld");
 		}
 		
 		return area;
