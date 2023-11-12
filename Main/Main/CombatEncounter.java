@@ -54,9 +54,9 @@ public class CombatEncounter {
 		return playerWin;
 	}
 	public void playerCombatCycle() {
-		System.out.println(p);
-		System.out.println("Choose your move!");
-		System.out.println(p.getMoveDisplay());
+		System.out.println(p+
+				   "\nChoose your move!"+
+				   "\n"+p.getMoveDisplay());
 		int dmg=p.moveRunner(m.intChoose('0', '3'));
 		damageDealer(false,dmg,p.getDmgType());
 	}
