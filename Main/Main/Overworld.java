@@ -69,10 +69,8 @@ public class Overworld {
 		//very cliche - Ethan
 			System.out.println("\nSo the big final boss was yourself...");
 			System.out.println("Wow! What a twist!");
-			main.game();
 			System.out.println("\nSo the big boss was yourself...");
 			System.out.println("Sounds reasonable!");
-
 			System.out.println("You glance back to the world you once journeyed so hard across...");
 			System.out.println("It is in ruins.");
 			System.out.println("Because of you.");
