@@ -44,10 +44,7 @@ public class Overworld {
 				if(m.percentRoller(60)) {
 					Enemy e = new Enemy(step);
 					CombatEncounter ce = new CombatEncounter(e,player1);
-					if(ce.mainCombat()) {
-						player1.addXP(20);
-					}
-					player1.levelUp();
+					ce.mainCombat();
 				}
 				navigateArea();
 			} else {
