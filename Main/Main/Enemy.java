@@ -1,4 +1,4 @@
-package csaProject;
+package Main;
 
 public class Enemy {
 	private String name,dmgType;
