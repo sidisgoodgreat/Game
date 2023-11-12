@@ -81,9 +81,9 @@ public class EnemyDesert {
 	}
 	public void golemDefense() {
 		magRes++;
-    physRes++;
+    		physRes++;
 	}
-//SandWorm Attacks
+	//SandWorm Attacks
 	public int sandwormMoves() {
 		int dmg = 0;
 		if(m.percentRoller(40)) {
@@ -94,12 +94,12 @@ public class EnemyDesert {
 		return dmg;
 	}
 	public int sandwormSandStorm() {
-    int totalDamage = 0;
-    for (int i = 0; i < 3; i++) {
-        totalDamage += 2;
-    }
-    return totalDamage;
-}
+    		int totalDamage = 0;
+		for (int i = 0; i < 3; i++) {
+        		totalDamage += 2;
+    		}
+    	return totalDamage;
+    	}
 	public int sandwormBite() {
 		if(m.percentRoller(50)) {
 			return 7;
