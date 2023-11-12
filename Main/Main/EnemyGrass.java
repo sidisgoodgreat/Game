@@ -7,29 +7,48 @@ public class EnemyGrass {
 	 * Wolf
 	 * Bandit
 	 */
-	private String name;
+	private String name,dmgType;
 	private int type,hp,maxHP;
 	private double magRes,physRes;
 	private Misc m = new Misc();
+
 	
 	public EnemyGrass() {
-		type=(int)(Math.random()*2);
+		type=(int)(Math.random()*2)+1;
 		if(type==1) {//Slime
-			name="Slime";
-			hp=5;
-			maxHP=5;
-			magRes=1;
-			physRes=1;
+			initSlime();
 		}else if(type==2) {//Wolf
-			name="Wolf";
-			hp=3;
-			maxHP=3;
-			magRes=1;
-			physRes=1;
+			initWolf();
 		}
+	}
+	public EnemyGrass(int type) {
+		if(type==1) {//Slime
+			initSlime();
+		}else if(type==2) {//Wolf
+			initWolf();
+		}
+	}
+	public void initSlime() {
+		name="Slime";
+		hp=5;
+		maxHP=5;
+		magRes=1;
+		physRes=1;
+		dmgType=slimeType;
+	}
+	public void initWolf() {
+		name="Wolf";
+		hp=3;
+		maxHP=3;
+		magRes=1;
+		physRes=1;
+		dmgType=wolfType;
 	}
 	public String getName() {
 		return name;
+	}
+	public String getDmgType() {
+		return dmgType;
 	}
 	public int getHP() {
 		return hp;
@@ -67,6 +86,7 @@ public class EnemyGrass {
 		return dmg;
 	}
 	//Slime Attacks: Strike and Heal?
+	String slimeType="magi";
 	public int slimeMoves() {
 		int dmg=0;
 		if(m.percentRoller(70)||hp==maxHP) {
@@ -77,14 +97,17 @@ public class EnemyGrass {
 		return dmg;
 	}
 	public int slimeStrike() {
+		System.out.println("The Slime strikes!");
 		return 3;
 	}
 	public void slimeHeal() {
 		if(hp<maxHP) {
+			System.out.println("The Slime heals!");
 			hp++;
 		}
 	}
 	//Wolf Attacks: Bite and Jugular
+	String wolfType="phys";
 	public int wolfMoves() {
 		int dmg = 0;
 		if(m.percentRoller(60)) {
@@ -95,14 +118,18 @@ public class EnemyGrass {
 		return dmg;
 	}
 	public int wolfBite() {
+		System.out.println("The Wolf bites!");
 		return 5;
 	}
 	public int wolfJug() {
 		if(m.percentRoller(50)) {
+			System.out.println("The Wolf Bites into ur neck!");
 			return 7;
 		} else {
+			System.out.println("The wolf tries to bite, but misses!");
 			return 0;
 		}
 	}
 	//stuff?
 }
+
