@@ -3,17 +3,9 @@ package Main;
 import java.util.Scanner;
 
 public class Player {
-	private String name;
-	private int hp=20;
-	private int maxHP=20;
-	private int level=1;
-	private int xp=0;
-	private double dmgMult=1;
-	private String dmgType;
-	private double physRes = 1;
-	private double magRes=1;
-	private int hpPotCount=3;
-	private int xpNeeded = 100;
+	private String name,dmgType;
+	private int hp=20, maxHP=20,level=1, xp=0,xpNeeded = 100,hpPotCount=3;
+	private double dmgMult=1,physRes = 1, magRes=1;
 	
 	private String moveDisplay="0: Slash"
 			+ "\n1: Stab"
