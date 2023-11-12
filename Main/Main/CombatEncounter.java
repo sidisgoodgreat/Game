@@ -1,4 +1,4 @@
-package Main;
+package csaProject;
 import java.util.Scanner;
 
 public class CombatEncounter {
@@ -23,7 +23,9 @@ public class CombatEncounter {
 	 * 
 	 * Repeat until one person is dead
 	 */
-	public void mainCombat() {
+	//returns true if player wins the battle
+	public boolean mainCombat() {
+		art();
 		System.out.println("You encounter a(n) "+e.getName()+"!");
 		while(isAlive()) {
 			playerCombatCycle();
@@ -35,22 +37,39 @@ public class CombatEncounter {
 				break;
 			}
 		}
+		boolean playerWin;
 		if(playerAlive()) {
 			System.out.println("You win!");
+			playerWin=true;
 		} else {
 			System.out.println("You died!");
+			playerWin=false;
 		}
+		return playerWin;
 	}
 	public void playerCombatCycle() {
 		System.out.println(p);
 		System.out.println("Choose your move!");
 		System.out.println(p.getMoveDisplay());
-		damageDealer(false,p.moveRunner(m.intChoose('0', '3')),p.getDmgType());
+		int dmg=p.moveRunner(m.intChoose('0', '3'));
+		damageDealer(false,dmg,p.getDmgType());
 	}
 	public void enemyCombatCycle() {
-		damageDealer(true,e.moveRunner());
+		int dmg=e.moveRunner();
+		damageDealer(true,dmg,e.getDmgType());
 	}
+	//isPlayer means that the player is taking damage
 	public void damageDealer(boolean isPlayer, int dmg,String dmgType) {
+		int actDmg=dmg;
+		if(isPlayer&&dmgType.equals("magi")) {
+			actDmg=(int)(actDmg*e.getMagRes());
+		} else if(isPlayer&&dmgType.equals("phys")) {
+			actDmg=(int)(actDmg*e.getPhysRes());
+		} else if(!isPlayer&&dmgType.equals("magi")) {
+			actDmg=(int)(actDmg*p.getMagRes());
+		}else if(!isPlayer&&dmgType.equals("phys")) {
+			actDmg=(int)(actDmg*p.getPhysRes());
+		}
 		if(isPlayer) {
 			p.setHP(p.getHP()-dmg);
 		} else {
@@ -63,3 +82,21 @@ public class CombatEncounter {
 	public boolean playerAlive() {
 		return (p.getHP()>=0);
 	}
+	public void art() {
+			for (int i = 0; i <= 11; i++) {
+				String bar = "@@@@@@@@@@@@";
+				System.out.println(bar.substring(0,i) + "*" + bar.substring(i));
+			}
+		
+			for (int n = 11; n >= 0; n--) {
+				String bar = "@@@@@@@@@@@@";
+				System.out.println(bar.substring(0,n) + "*" + bar.substring(n));
+			}
+			
+			for (int i = 0; i <= 11; i++) {
+				String bar = "@@@@@@@@@@@@";
+				System.out.println(bar.substring(0,i) + "*" + bar.substring(i));
+			}
+			System.out.println();
+	}
+}

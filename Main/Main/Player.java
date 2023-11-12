@@ -1,29 +1,43 @@
-package Main;
 
+package Main;
 import java.util.Scanner;
+
 public class Player {
 	private String name;
-	private String dmgType;
 	private int hp=20;
 	private int maxHP=20;
 	private int level=1;
-	private int xp;
-	private int dmgMult=1;
-	private double physRes=1;
+	private int xp=0;
+	private double dmgMult=1;
+	private String dmgType;
+	private double physRes = 1;
 	private double magRes=1;
+	private int hpPotCount=3;
+	
+	private String moveDisplay="0: Slash"
+			+ "\n1: Stab"
+			+ "\n2: Fireball"
+			+ "\n3: Drink Healing Potion";
 	
 	//constructor
 	public Player(String name){
 		this.name=name;
 	}
-
+	public Player(){
+		name="bob";
+	}
   //object declaration
   	private Misc m = new Misc();
-	private Scanner s = new Scanner(System.in);
 	
 	//Accessor Methods
 	public String getName(){
 		return name;
+	}
+	public String getDmgType() {
+		return dmgType;
+	}
+	public String getMoveDisplay() {
+		return moveDisplay;
 	}
 	public int getHP() {
 		return hp;
@@ -31,14 +45,11 @@ public class Player {
 	public int getLevel() {
 		return level;
 	}
-	public int getXP(){
-		return xp;
+	public double getMagRes() {
+		return magRes;
 	}
-	public int getDMG() {
-		return dmg;
-	}
-	public int getDmgType() {
-		return dmgType;
+	public double getPhysRes() {
+		return physRes;
 	}
 	//Mutator methods
 	public void setHP(int init) {
@@ -47,13 +58,13 @@ public class Player {
 	public void setLevel(int init) {
 		level=init;
 	}
-	public void setXP(int init){
+	public void setXP(int init) {
 		xp=init;
 	}
-	public void setDMG(int init) {
-		dmg=init;
+public void addXP(int init) {
+		System.out.println("You gained "+init+" xp!");
+		xp+=init;
 	}
-
 	//Display
 	public String toString(){
 		String s = "Name: "+name
@@ -71,41 +82,39 @@ public class Player {
 		double percent = (1.0-magRes)*100;
 		return percent+"%";
 	}
+	public String displayMoves() {
+		String s = "";
+		return s;
+	}
 	
 	//Level Up Methods
-	public void levelCheck() {
-		//Max level is 20, and xp to level up is 100
-    		if((level < 21)&&(xp >= 100)) {
-			levelUp();
-        		resChange();
-    		}
-  	}
-	//Damage Scaling?
 	public void levelUp(){
 		int levelCount=0;
 		while(xp>=100){
 			xp-=100;
 			levelCount++;
 		}
-		String levelUpString = "You leveled up "+levelCount+"time"
-		if(levelCount>1){
+		String levelUpString = "You leveled up "+levelCount+" time";
+		if(levelCount==1){
 			levelUpString+="s!";
 		} else {
 			levelUpString+="!";
 		}
-		for(levelCount;levelCount>0;levelCount--){
+		System.out.println(levelUpString);
+		for(int i=levelCount;i>0;i--){
 			maxHP+=maxHP/4;
 			hp=maxHP;
 			level++;
-			dmgMult/=(dmgMult*4);
+			dmgMult*=4;
+			dmgMult/=3;
 			xp-=100;
 		}
   	}
-	public void resChange(){
+	public void resChange(int level){
 		System.out.println("Choose resistance to raise"+
 				  "\n0: Magical"+
 				  "\n1: Physical");
-		int chosen = s.nextInt();
+		int chosen = m.intChoose('0', '1');
 		if(chosen==0){
 			magRes-=0.05;
 		} else {
@@ -117,7 +126,8 @@ public class Player {
 	 * Moveset
 	 * Slash
 	 * Stab
-	 * Spells
+	 * Fireball
+	 * Healing Potion
 	 *Resistances
 	 *
 	 */
@@ -139,24 +149,33 @@ public class Player {
 	}
 	String type0="phys";
 	public int slash() {
-   		return 1*m.crit(20,2)*dmgMult;
+   		int dmg= 2*m.crit(20,2);
+   		System.out.println("You slash with your sword!");
+   		return (int)(dmg*dmgMult);
 	}
 	String type1="phys";
 	public int stab() {
+		int dmg = 0;
 		if(m.percentRoller(60)) {
-			return 2*m.crit(50,3)*dmgMult;
+			dmg= 2*m.crit(50,3);
+			System.out.println("You stab with your sword!");
 		} else {
-			return 0;
-		}		
+			System.out.println("You miss your stab!");
+		}
+		return (int)(dmg*dmgMult);
 	}
 	String type2="magi";
 	public int fireball() {
-		return 3*dmgMult;
+		int dmg= 3;
+		System.out.println("You throw a fireball!");
+		return (int)(dmg*dmgMult);
 	}
 	String type3="self";
 	public void drinkPot() {
+		int healAmount = (int)(5*dmgMult);
 		if(hpPotCount>0) {
-			hp+=5*dmgMult;
+			hp+=healAmount;
+			System.out.println("You drink the healing potion. "+healAmount+" hp healed!");
 			hpPotCount--;
 		} else {
 			System.out.println("out of pots!");
