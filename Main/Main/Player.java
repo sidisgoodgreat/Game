@@ -13,6 +13,7 @@ public class Player {
 	private double physRes = 1;
 	private double magRes=1;
 	private int hpPotCount=3;
+	private int xpNeeded = 100;
 	
 	private String moveDisplay="0: Slash"
 			+ "\n1: Stab"
@@ -93,7 +94,6 @@ public void addXP(int init) {
 	//Level Up Methods
 	public void levelUp(){
 		int levelCount=0;
-		int xpNeeded=100
 		while(xp>=xpNeeded){
 			xp-=xpNeeded;
 			levelCount++;
