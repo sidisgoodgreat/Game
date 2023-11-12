@@ -111,12 +111,5 @@ public class Overworld {
 	
 	public void subStep() {
 		step--;
-	}
-	
-	public void area1() {
-		
-	}
-	
-		
-	
+	}	
 }
