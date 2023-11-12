@@ -93,9 +93,11 @@ public void addXP(int init) {
 	//Level Up Methods
 	public void levelUp(){
 		int levelCount=0;
-		while(xp>=100){
-			xp-=100;
+		int xpNeeded=100
+		while(xp>=xpNeeded){
+			xp-=xpNeeded;
 			levelCount++;
+			xpNeeded += 100; //makes you need 100 more to go to next level. :)))
 		}
 		String levelUpString = "You leveled up "+levelCount+" time";
 		if(levelCount==1){
