@@ -17,8 +17,8 @@ public class EnemyDesert {
 			name="golem";
 			hp=4;
 			maxHP=4;
-			magRes=3;
-			physRes=3;
+			magRes=1;
+			physRes=0.75;
 		}else if (type ==2){//sandworm
 			name="sandworm";
 			hp=5;
@@ -79,8 +79,7 @@ public class EnemyDesert {
 		return 5;
 	}
 	public void golemDefense() {
-		magRes-=0.1;
-    		physRes-=0.1;
+    		physRes-=0.05;
 	}
 	//SandWorm Attacks
 	public int sandwormMoves() {
