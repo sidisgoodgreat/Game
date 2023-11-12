@@ -12,22 +12,21 @@ public class EnemyDesert {
 	private Misc m = new Misc();
 	
 	public EnemyDesert() {
-
 		type=(int)(Math.random()*2)+1;
 		if(type==1) {//golem
 			name="golem";
 			hp=30;
 			maxHP=30;
-			magRes=0.5;
-			physRes=5;
+			magRes=1.5;
+			physRes=.75;
 			xp = 160;
 			dmgType=golemType;
 		}else if (type ==2){//sandworm
 			name="sandworm";
 			hp=60;
 			maxHP=60;
-			magRes=10;
-			physRes=2;
+			magRes=.25;
+			physRes=1;
 			dmgType=sandwormType;
 			xp = 300;
 		} 
