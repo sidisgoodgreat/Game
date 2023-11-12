@@ -1,14 +1,14 @@
-package Main;
+package csaProject;
 
 public class Enemy {
-	private String name;
+	private String name,dmgType;
 	private int type,hp,dmg;
 	private double physRes,magRes;
 	private String area;
 	
 	private EnemyGrass eg = new EnemyGrass();
-	//private EnemyDesert ed = new EnemyDesert();
-	//private EnemyHeck eh = new EnemyHeck();
+	private EnemyForest ed = new EnemyDesert();
+	//private EnemyUnder eu = new EnemyUnder();
 	
 	
 	public Enemy(int areaInit) {
@@ -21,11 +21,11 @@ public class Enemy {
 			type=eg.getType();
 		} else if (areaInit > 10) {
 			area = "desert";
-			//name=ef.getName();
-			//hp=ef.getHP();
-			//physRes=ef.getPhysRes();
-			//magRes=ef.getMagRes();
-			//type=ef.getType();
+			name=ed.getName();
+			hp=ed.getHP();
+			physRes=ed.getPhysRes();
+			magRes=ed.getMagRes();
+			type=ed.getType();
 		}  else if (areaInit > 15) {
 			area = "under";
 			//name=eu.getName();
@@ -35,8 +35,11 @@ public class Enemy {
 			//type=eu.getType();
 		}
 	}
-		public String getName() {
+	public String getName() {
 		return name;
+	}
+	public String getDmgType() {
+		return dmgType;
 	}
 	public int getHP() {
 		return hp;
@@ -65,11 +68,17 @@ public class Enemy {
 	public int moveRunner() {
 		dmg=0;
 		if(area.equals("gLands")) {
+			System.out.println(hp);
+			dmgType=eg.getDmgType();
 			dmg=eg.wholeMoves(type);
-		} else if(area.equals("desert")){
+		} else if(area.equals("desert")) {
+			System.out.println(hp);
+			dmgType=ed.getDmgType();
+			dmg=ed.wholeMoves(type);
+		}else if(area.equals("under")) {
+			//System.out.println(hp);
+			//dmgType=ed.getDmgType();
 			//dmg=ed.wholeMoves(type);
-		}else if(area.equals("desert")){
-			//dmg=eu.wholeMoves(type);
 		}
 		return dmg;
 	}
