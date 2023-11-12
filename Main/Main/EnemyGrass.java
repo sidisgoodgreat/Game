@@ -23,10 +23,10 @@ public class EnemyGrass {
 	}
 	public void initSlime() {
 		name="Slime";
-		hp=10;
+		hp=6;
 		maxHP=5;
-		magRes=1.2;
-		physRes=0.8;
+		magRes=.8;
+		physRes=1.2;
 		dmgType=slimeType;
 		xp = 100;
 	}
@@ -34,8 +34,8 @@ public class EnemyGrass {
 		name="Wolf";
 		hp=4;
 		maxHP=3;
-		magRes=1;
-		physRes=1.2;
+		magRes=1.2;
+		physRes=1;
 		dmgType=wolfType;
 		xp = 120;
 	}
