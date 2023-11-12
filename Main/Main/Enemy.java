@@ -2,21 +2,20 @@ package Main;
 
 public class Enemy {
 	private String name,dmgType;
-	private int type,hp,dmg;
+	private int type,hp,dmg, xp;
 	private double physRes,magRes;
 	private String area;
 	
 	private EnemyGrass eg = new EnemyGrass();
-	private EnemyForest ed = new EnemyDesert();
+	private EnemyDesert ed = new EnemyDesert();
 	//private EnemyUnder eu = new EnemyUnder();
 	
 	
 	public Enemy(int areaInit) {
-		if (areaInit == 0) {
+		if (areaInit < 0) {
 			name = "nothing";
 		}
-		if (areaInit < 5) {
-			
+		else if (areaInit < 5) {
 
 			area = "gLands";
 			name=eg.getName();
@@ -24,21 +23,27 @@ public class Enemy {
 			physRes=eg.getPhysRes();
 			magRes=eg.getMagRes();
 			type=eg.getType();
-		} else if (areaInit > 10) {
+			xp = eg.getXP();
+		} else if (areaInit < 10) {
 			area = "desert";
 			name=ed.getName();
 			hp=ed.getHP();
 			physRes=ed.getPhysRes();
 			magRes=ed.getMagRes();
 			type=ed.getType();
-		}  else if (areaInit > 15) {
+			xp = eg.getXP();
+		}  else if (areaInit < 15) {
 			area = "under";
 			//name=eu.getName();
 			//hp=eu.getHP();
 			//physRes=eu.getPhysRes();
 			//magRes=eu.getMagRes();
 			//type=eu.getType();
+			//xp = eg.getXP();
 		}
+	}
+	public int getXP() {
+		return xp;
 	}
 	public String getName() {
 		return name;

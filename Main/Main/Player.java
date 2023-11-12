@@ -39,6 +39,9 @@ public class Player {
 	public String getMoveDisplay() {
 		return moveDisplay;
 	}
+	public int getMaxHP() {
+		return maxHP;
+	}
 	public int getHP() {
 		return hp;
 	}

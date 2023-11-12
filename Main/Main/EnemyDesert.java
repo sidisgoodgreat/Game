@@ -1,4 +1,4 @@
-package csaProject;
+package Main;
 
 public class EnemyDesert {
 	/*
@@ -7,26 +7,29 @@ public class EnemyDesert {
 	 * sandworm
 	 */
 	private String name, dmgType;
-	private int type,hp,maxHP;
+	private int type,hp,maxHP, xp;
 	private double magRes,physRes;
 	private Misc m = new Misc();
 	
 	public EnemyDesert() {
+
 		type=(int)(Math.random()*2)+1;
 		if(type==1) {//golem
 			name="golem";
-			hp=4;
-			maxHP=4;
-			magRes=1;
-			physRes=0.75;
+			hp=30;
+			maxHP=30;
+			magRes=0.5;
+			physRes=5;
+			xp = 160;
 			dmgType=golemType;
 		}else if (type ==2){//sandworm
 			name="sandworm";
-			hp=5;
-			maxHP=5;
-			magRes=1;
-			physRes=1;
+			hp=60;
+			maxHP=60;
+			magRes=10;
+			physRes=2;
 			dmgType=sandwormType;
+			xp = 300;
 		} 
 	}
 	public String getName() {
@@ -46,6 +49,9 @@ public class EnemyDesert {
 	}
 	public int getType() {
 		return type;
+	}
+	public int getXP() {
+		return xp;
 	}
 	public void setName(String init) {
 		name=init;

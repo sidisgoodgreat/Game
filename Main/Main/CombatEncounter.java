@@ -1,4 +1,4 @@
-package csaProject;
+package Main;
 import java.util.Scanner;
 
 public class CombatEncounter {
@@ -8,7 +8,7 @@ public class CombatEncounter {
 	private Player p;
 	public CombatEncounter(Enemy e, Player p) {
 		this.p = p;
-		this.e=e;
+		this.e= e;
 	}
 	/*
 	 * LOOP
@@ -27,6 +27,7 @@ public class CombatEncounter {
 	public boolean mainCombat() {
 		art();
 		System.out.println("You encounter a(n) "+e.getName()+"!");
+		
 		while(isAlive()) {
 			playerCombatCycle();
 			if(!isAlive()) {
@@ -40,11 +41,13 @@ public class CombatEncounter {
 		boolean playerWin;
 		if(playerAlive()) {
 			System.out.println("You win!");
+			
 			playerWin=true;
 		} else {
 			System.out.println("You died!");
 			playerWin=false;
 		}
+		p.setHP(p.getMaxHP());
 		return playerWin;
 	}
 	public void playerCombatCycle() {

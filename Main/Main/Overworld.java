@@ -10,11 +10,11 @@ public class Overworld {
 	
 	private Misc m = new Misc();
 	private Scanner sc = new Scanner(System.in);
-	private Player player1;
+	private Player player1 = new Player();
 	
 	public String promptUser(int lvl, String pos) {
-		System.out.println("\nOn your quest to reach level 100...");
-		System.out.println("Currently you're level " + lvl + " and you're in the " + pos);
+		System.out.println("\nOn your quest to beat the Demon Lord...");
+		System.out.println("Currently you're level " + player1.getLevel() + " and you're in the " + pos);
 		System.out.println("Do you wanna go forward? Or backward...?");
 		System.out.println("^ forward | backward v");
 		String movement = sc.nextLine();
@@ -42,13 +42,15 @@ public class Overworld {
 		}
 		
 		Enemy enc = new Enemy(-1);
+		
 		if ( (int)(Math.random()*2)+1 == 1){
 			enc = new Enemy(step);
 		} 
 		
+		String name = enc.getName();
 
 		
-		if (!enc.equals("nothing")) {
+		if (!name.equals("nothing")) {
 			for (int i = 0; i <= 11; i++) {
 				String bar = "@@@@@@@@@@@@";
 				System.out.println(bar.substring(0,i) + "*" + bar.substring(i));
@@ -65,17 +67,24 @@ public class Overworld {
 			}
 		}
 		
-		String name = enc.getName();
 		
 		System.out.println();
+		CombatEncounter battle = new CombatEncounter(enc, player1);
+		boolean won = false;
 		
-		if (!name.equals("nothing") || !name.equals("yourself")) 
-		{
-			System.out.println("You encounter a " + name + "!" );
+		if (!enc.getName().equals("nothing")){
+			won = battle.mainCombat();
+			if(won) {
+				player1.addXP(enc.getXP());
+				player1.levelUp();
+			} else {
+				setStep(0);
+				System.out.println("You hurriedly retreat back to your house after a tragic defeat!");
+				System.out.println("Time to come back stronger...");
+			}
 		} else {
-			System.out.println("You encounter " + name + "!" );
+			System.out.println("You encountered nothing!");
 		}
-		
 		
 	}
 		//Battle.fight(enc);
@@ -109,9 +118,15 @@ public class Overworld {
 				if(m.percentRoller(60)) {
 					Enemy e = new Enemy(step);
 					CombatEncounter ce = new CombatEncounter(e,player1);
+					
 					if(ce.mainCombat()) {
-						player1.addXP(20);
+						player1.addXP(e.getXP());
+					} else {
+						setStep(0);
+						System.out.println("You hurriedly retreat back to your house after a tragic defeat!");
+						System.out.println("Time to come back stronger...");
 					}
+					
 					player1.levelUp();
 				}
 				navigateArea();
@@ -121,11 +136,7 @@ public class Overworld {
 
 			// if lost/won... get back here to this class!
 			// if you lose you restart hahahaha
-			if (player1.getHP() <= 0) {
-				setStep(0);
-				System.out.println("You hurriedly retreat back to your house after a tragic defeat!");
-				System.out.println("Time to come back stronger...");
-			}
+
 			
 			// to do: add an ending!!! and maybe an introduction cus we cool like that B )
 	

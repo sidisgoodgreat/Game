@@ -8,7 +8,7 @@ public class EnemyGrass {
 	 * Bandit
 	 */
 	private String name,dmgType;
-	private int type,hp,maxHP;
+	private int type,hp,maxHP, xp;
 	private double magRes,physRes;
 	private Misc m = new Misc();
 
@@ -24,19 +24,21 @@ public class EnemyGrass {
 	}
 	public void initSlime() {
 		name="Slime";
-		hp=5;
+		hp=10;
 		maxHP=5;
-		magRes=1;
-		physRes=1;
+		magRes=1.2;
+		physRes=0.8;
 		dmgType=slimeType;
+		xp = 100;
 	}
 	public void initWolf() {
 		name="Wolf";
-		hp=3;
+		hp=4;
 		maxHP=3;
 		magRes=1;
-		physRes=1;
+		physRes=1.2;
 		dmgType=wolfType;
+		xp = 120;
 	}
 	public String getName() {
 		return name;
@@ -55,6 +57,9 @@ public class EnemyGrass {
 	}
 	public int getType() {
 		return type;
+	}
+	public int getXP() {
+		return xp;
 	}
 	public void setName(String init) {
 		name=init;
