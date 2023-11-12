@@ -39,15 +39,18 @@ public class CombatEncounter {
 			}
 		}
 		boolean playerWin;
+		int xpGet;
 		if(playerAlive()) {
 			System.out.println("You win!");
-			
+			xpGet = e.getXP();
 			playerWin=true;
 		} else {
 			System.out.println("You died!");
+			xpGet = 0;
 			playerWin=false;
 		}
 		p.setHP(p.getMaxHP());
+		p.setXP(xpGet);
 		return playerWin;
 	}
 	public void playerCombatCycle() {
