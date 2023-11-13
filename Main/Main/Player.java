@@ -12,41 +12,72 @@ public class Player {
 			+ "\n2: Fireball"
 			+ "\n3: Drink Healing Potion";
 	
-	//constructor
+	/**
+	 * constructor
+	 * @param name
+	 */
 	public Player(String name){
 		this.name=name;
 	}
 	public Player(){
 		name="bob";
 	}
-  //object declaration
+	//object declaration
   	private Misc m = new Misc();
 	
 	//Accessor Methods
+  	/**
+	 * @return String name
+	 */
 	public String getName(){
 		return name;
 	}
+	
+	/**
+	 * @return String dmgType
+	 */
 	public String getDmgType() {
 		return dmgType;
 	}
+	/**
+	 * @return String moveDisplay
+	 */
 	public String getMoveDisplay() {
 		return moveDisplay;
 	}
+	/**
+	 * @return int maxHP
+	 */
 	public int getMaxHP() {
 		return maxHP;
 	}
+	/**
+	 * @return int hp
+	 */
 	public int getHP() {
 		return hp;
 	}
+	/**
+	 * @return int level
+	 */
 	public int getLevel() {
 		return level;
 	}
+	/**
+	 * @return double magRes
+	 */
 	public double getMagRes() {
 		return magRes;
 	}
+	/**
+	 * @return double physRes
+	 */
 	public double getPhysRes() {
 		return physRes;
 	}
+	/**
+	 * @return double dmgMult
+	 */
 	public double getDmgMult(){
 		return dmgMult;
 	}
@@ -102,6 +133,7 @@ public class Player {
   	* Repeats until xp<xpNeeded
   	*/
 	public void levelUp(){
+		System.out.println("XP you have: " + xp);
 		int levelCount=0;
 		while(xp>=xpNeeded){
 			xp-=xpNeeded;

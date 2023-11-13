@@ -51,6 +51,7 @@ public class CombatEncounter {
 		}
 		p.setHP(p.getMaxHP());
 		p.addXP(xpGet);
+		p.levelUp();
 		return playerWin;
 	}
 	public void playerCombatCycle() {

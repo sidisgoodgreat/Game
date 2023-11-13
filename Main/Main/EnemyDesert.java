@@ -86,9 +86,12 @@ public class EnemyDesert {
 		}
 		return dmg;
 	}
+	
 	public int golemSmash() {
 		return 5;
 	}
+	
+	// Increase physical resistance 
 	public void golemDefense() {
     		physRes-=0.05;
 	}
@@ -110,6 +113,11 @@ public class EnemyDesert {
     		}
     		return totalDamage;
     	}
+	
+	/**
+	 * Outputs flavor text and gives back 2 possible dmg values according to chance
+	 * @return int 7 or int 0
+	 */
 	public int sandwormBite() {
 		if(m.percentRoller(50)) {
 			return 7;
