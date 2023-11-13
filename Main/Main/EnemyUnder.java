@@ -65,7 +65,7 @@ public class EnemyUnder {
 		if (m.percentRoller (60) || hp == maxHP) {
 			dmg = demonStrike ();
 		} else {
-			demonCurse();
+			dmg=demonCurse();
 		}
 		return dmg;
 		}
