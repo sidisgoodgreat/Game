@@ -9,8 +9,7 @@ public class Enemy {
 	private EnemyGrass eg = new EnemyGrass();
 	private EnemyDesert ed = new EnemyDesert();
 	private EnemyUnder eu = new EnemyUnder();
-	private enemyBoss eb=new enemyBoss();
-	
+	private enemyBoss eb;
 	
 	public Enemy(int areaInit) {
 		if (areaInit < 0) {
@@ -41,7 +40,10 @@ public class Enemy {
 			magRes=eu.getMagRes();
 			type=eu.getType();
 			xp = eu.getXP();
-		}else {
+		}
+	}
+	public Enemy(Player p){
+		eb = new EnemyBoss(p);
 			area = "boss";
 			name=eb.getName();
 			hp=eb.getHP();
@@ -50,7 +52,6 @@ public class Enemy {
 			type=eb.getType();
 			xp = eb.getXP();
 		}
-	}
 	public int getXP() {
 		return xp;
 	}
