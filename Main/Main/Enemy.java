@@ -8,7 +8,7 @@ public class Enemy {
 	
 	private EnemyGrass eg = new EnemyGrass();
 	private EnemyDesert ed = new EnemyDesert();
-	//private EnemyUnder eu = new EnemyUnder();
+	private EnemyUnder eu = new EnemyUnder();
 	
 	
 	public Enemy(int areaInit) {
@@ -34,12 +34,12 @@ public class Enemy {
 			xp = eg.getXP();
 		}  else if (areaInit < 15) {
 			area = "under";
-			//name=eu.getName();
-			//hp=eu.getHP();
-			//physRes=eu.getPhysRes();
-			//magRes=eu.getMagRes();
-			//type=eu.getType();
-			//xp = eg.getXP();
+			name=eu.getName();
+			hp=eu.getHP();
+			physRes=eu.getPhysRes();
+			magRes=eu.getMagRes();
+			type=eu.getType();
+			xp = eg.getXP();
 		}
 	}
 	public int getXP() {
