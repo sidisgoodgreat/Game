@@ -8,7 +8,7 @@ public class EnemyBoss {
 	 */
 	private String name,dmgType;
 	private int type, hp, maxHP,xp;
-	private double magRes, physRes;
+	private double magRes, physRes,dmgMult;
 	private Misc m = new Misc();
 	
 	public EnemyBoss (Player p) {
@@ -17,6 +17,7 @@ public class EnemyBoss {
 		maxHP = p.getMaxHP();
 		magRes = p.getMagRes();
 		physRes = p.getPhysRes();
+		dmgMult=p.getDmgMult();
 		xp=99999;
 	}
 	
@@ -62,12 +63,12 @@ public class EnemyBoss {
 	}
 	public int slash () {
 		System.out.println("You got slashed!");
-		return 10;
+		return (int)(10*dmgMult);
 	}
 	public int fireBall () {
 		if (m.percentRoller(70)) {
 			System.out.println("You have been struck by a fireball!");
-			return 8;
+			return (int)(8*dmgMult);
 		} else {
 			System.out.println("You have dodged the fireball!");
 			return 0;
