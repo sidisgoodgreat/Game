@@ -1,5 +1,5 @@
 package Main;
-public class EnemyUnderworld {
+public class EnemyUnder {
 	/*
 	 * Types of Enemies
 	 * Demon
@@ -10,13 +10,13 @@ public class EnemyUnderworld {
 	private double magRes, physRes;
 	private Misc m = new Misc();
 	
-	public EnemyUnderworld () {//demons
+	public EnemyUnder () {//demons
 		initDemon();
 	}
 	public void initDemon () {
-		name "demon";
+		name= "demon";
 		hp = 4;
-		mapHP = 4;
+		maxHP = 4;
 		magRes = .4;
 		physRes = .7;
 		xp=200;
@@ -35,8 +35,11 @@ public class EnemyUnderworld {
 	public double getPhysRes() {
 		return physRes;
 	}
-	public double getType() {
+	public int getType() {
 		return type;
+	}
+	public int getXP() {
+		return xp;
 	}
 	public void setName (String initName) {
 		name =  initName;
@@ -58,7 +61,8 @@ public class EnemyUnderworld {
 	// attacks
 	String demonType = "magi";
 	public int demonMoves () {
-		if (m.percentRoller (60) || hp == maxHP)) {
+		int dmg=0;
+		if (m.percentRoller (60) || hp == maxHP) {
 			dmg = demonStrike ();
 		} else {
 			demonCurse();
