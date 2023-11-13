@@ -15,8 +15,8 @@ public class EnemyUnder {
 	}
 	public void initDemon () {
 		name= "demon";
-		hp = 4;
-		maxHP = 4;
+		hp = 20;
+		maxHP = 20;
 		magRes = .4;
 		physRes = .7;
 		xp=200;
