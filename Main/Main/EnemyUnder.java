@@ -6,7 +6,7 @@ public class EnemyUnderworld {
 	 * Yourself
 	 */
 	private String name, dmgType;
-	private int type, hp, maxHP;
+	private int type, hp, maxHP,xp;
 	private double magRes, physRes;
 	private Misc m = new Misc();
 	
@@ -27,6 +27,7 @@ public class EnemyUnderworld {
 		mapHP = 4;
 		magRes = .4;
 		physRes = .7;
+		xp=200;
 		dmgType = demonType;
 	}
 	public void initYourself () {
@@ -35,6 +36,7 @@ public class EnemyUnderworld {
 		maxHP = 5;
 		magRes = 3;
 		physRes = 6;
+		xp=99999;
 		dmgType = yourType;
 	}
 	
