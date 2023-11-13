@@ -14,9 +14,9 @@ public class EnemyBoss {
 	public EnemyBoss (Player p) {
 		name = "Yourself";
 		hp = p.getMaxHP();
-		maxHP = 5;
-		magRes = 3;
-		physRes = 6;
+		maxHP = p.getMaxHP();
+		magRes = p.getMagRes();
+		physRes = p.getPhysRes();
 		xp=99999;
 	}
 	
