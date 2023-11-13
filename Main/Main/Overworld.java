@@ -7,13 +7,23 @@ public class Overworld {
 	private Misc m = new Misc();
 	private Scanner sc = new Scanner(System.in);
 	private Player player1;
-	
+
+	/**
+ 	* Prompts the user on what direction they want to move
+ 	*@param lvl - For display purposes, level of the player
+  	*@param pos - String of the player's area: Grasslands, Desert, or Underworld
+   	*@return - String user inputed, either "^" or "v"
+	*/
 	public String promptUser(int lvl, String pos) {
 		System.out.println("\nOn your quest to reach level 100...");
 		System.out.println("Currently you're level " + lvl + " and you're in the " + pos);
 		System.out.println("Do you wanna go forward? Or backward...?");
 		System.out.println("^ forward | backward v");
-		String movement = sc.nextLine();
+		String movement = sc.next();
+		while(!(movement.equals("^")||movement.equals("v"))){
+				System.out.println("Invalid, please try again");
+				movement = sc.next();
+			}
 		return movement;
 	}
 	public void begin() {
@@ -30,10 +40,7 @@ public class Overworld {
 		while (getStep() <= 15) {
 			
 			String input = promptUser(player1.getLevel(), navigateArea() );
-			while(!(input.equals("^")||input.equals("v"))){
-				System.out.println("Invalid, please try again");
-				input = sc.next();
-			}
+			
 			if (input.equals( "^")) {
 				addStep();
 			} else if (input.equals("v")&&getStep() > 0) {
