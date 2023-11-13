@@ -9,7 +9,7 @@ public class Enemy {
 	private EnemyGrass eg = new EnemyGrass();
 	private EnemyDesert ed = new EnemyDesert();
 	private EnemyUnder eu = new EnemyUnder();
-	private enemyBoss eb;
+	private EnemyBoss eb;
 	
 	public Enemy(int areaInit) {
 		if (areaInit < 0) {
@@ -102,7 +102,7 @@ public class Enemy {
 		}else if(area.equals("boss")) {
 			System.out.println(hp);
 			//dmg and dmgType re-initialization switched here because dmgType changes per move for this enemy only
-			dmg=eb.wholeMoves(type); 
+			dmg=eb.wholeMoves(); 
 			dmgType=eb.getDmgType();
 		}
 		return dmg;

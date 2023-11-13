@@ -108,9 +108,10 @@ public void addXP(int init) {
 			dmgMult*=4;
 			dmgMult/=3;
 			xp-=100;
+			resChange();
 		}
   	}
-	public void resChange(int level){
+	public void resChange(){
 		System.out.println("Choose resistance to raise"+
 				  "\n0: Magical"+
 				  "\n1: Physical");

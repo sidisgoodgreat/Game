@@ -41,4 +41,3 @@ public class Misc {
 		return ((int)choice)-48;
 	}
 }
-
