@@ -47,6 +47,9 @@ public class Player {
 	public double getPhysRes() {
 		return physRes;
 	}
+	public double getDmgMult(){
+		return dmgMult;
+	}
 	//Mutator methods
 	public void setHP(int init) {
 		hp=init;
