@@ -60,11 +60,18 @@ public class Player {
 	public void setXP(int init) {
 		xp=init;
 	}
-public void addXP(int init) {
+	/**
+ 	* adds the value argued in init to the global variable xp, prints flavor text
+  	* @param init - xp value that will be added to the players xp count
+  	*/
+	public void addXP(int init) {
 		System.out.println("You gained "+init+" xp!");
 		xp+=init;
 	}
-	//Display
+	/**
+ 	* Displays stats of the player, except for xp and dmgMult
+  	* @return - String containing stats of player, as stated above
+ 	*/
 	public String toString(){
 		String s = "Name: "+name
 			+"\nLevel: "+level
@@ -73,20 +80,27 @@ public void addXP(int init) {
 			+"\nPhysical Resistance: "+physResDisplay();
 		return s;
 	}
+	/**
+ 	* displays string containing magicResistance, turned from a double to a percent
+  	* @return - String containing magicResistance, turned from a double to a percent
+ 	*/
 	public String magResDisplay(){
 		double percent = (1.0-physRes)*100;
 		return percent+"%";
 	}
+	/**
+ 	* displays string containing physical Resistance, turned from a double to a percent
+  	* @return - String containing physRes, turned from a double to a percent
+ 	*/
 	public String physResDisplay(){
 		double percent = (1.0-magRes)*100;
 		return percent+"%";
 	}
-	public String displayMoves() {
-		String s = "";
-		return s;
-	}
-	
 	//Level Up Methods
+	/**
+ 	* increases level and corresponding values(hp,dmgMult,xp) when the variable xp >= xpNeeded
+  	* Repeats until xp<xpNeeded
+  	*/
 	public void levelUp(){
 		int levelCount=0;
 		while(xp>=xpNeeded){
@@ -111,6 +125,9 @@ public void addXP(int init) {
 			resChange();
 		}
   	}
+	/**
+ 	* Decreases either the double magRes or physRes based on user input by 0.05
+  	*/
 	public void resChange(){
 		System.out.println("Choose resistance to raise"+
 				  "\n0: Magical"+
