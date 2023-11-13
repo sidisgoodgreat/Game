@@ -41,7 +41,7 @@ public class Enemy {
 			magRes=eu.getMagRes();
 			type=eu.getType();
 			xp = eu.getXP();
-		}else if {
+		}else {
 			area = "boss";
 			name=eb.getName();
 			hp=eb.getHP();
