@@ -10,16 +10,8 @@ public class EnemyUnderworld {
 	private double magRes, physRes;
 	private Misc m = new Misc();
 	
-	public EnemyUnderworld () {
-		type = (int) (Math.random() * 2 ) +1;
-		if (type ==1) { //demons
-			initDemon();
-		}
-	}
-	public EnemyUnderworld(int type) {
-		if (type == 1) {
-			initDemon();
-		}
+	public EnemyUnderworld () {//demons
+		initDemon();
 	}
 	public void initDemon () {
 		name "demon";
@@ -29,14 +21,6 @@ public class EnemyUnderworld {
 		physRes = .7;
 		xp=200;
 		dmgType = demonType;
-	}
-	public void initYourself () {
-		name = "Yourself";
-		hp = 5;
-		maxHP = 5;
-		magRes = 3;
-		physRes = 6;
-		xp=99999;
 	}
 	
 	public String getName() {
@@ -66,6 +50,11 @@ public class EnemyUnderworld {
 	public void setPhysRes (int initPhysRes) {
 		physRes = initPhysRes;
 	}
+	public int wholeMoves(int type) {
+		int dmg = 0;
+		dmg=demonMoves();
+		return dmg;
+	}
 	// attacks
 	String demonType = "magi";
 	public int demonMoves () {
@@ -86,32 +75,6 @@ public class EnemyUnderworld {
 			return 50;
 		} else {
 			System.out.println("The demon tried to curse you but missed!");
-			return 0;
-		}
-	}
-	
-	// attack on yourself: slash/fireball
-	public int oppositeMoves () {
-		int dmg = 0;
-		if (m.percentRoller(50)) {
-			dmgType="phys";
-			dmg = slash;
-		} else if {
-			dmgType="magi";
-			dmg = fireBall;
-		}
-		return dmg;
-	}
-	public int slash () {
-		System.out.println("You got slashed!");
-		return 10;
-	}
-	public int fireBall () {
-		if (m.percentRoller(70)) {
-			System.out.println("You have been struck by a fireball!");
-			return 8;
-		} else {
-			System.out.println("You have dodged the fireball!");
 			return 0;
 		}
 	}
