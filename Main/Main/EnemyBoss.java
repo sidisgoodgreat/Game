@@ -49,7 +49,7 @@ public class EnemyBoss {
 	}
 	// attacks
 	// attack on yourself: slash/fireball
-	public int oppositeMoves () {
+	public int wholeMoves () {
 		int dmg = 0;
 		if (m.percentRoller(50)) {
 			dmgType="phys";
