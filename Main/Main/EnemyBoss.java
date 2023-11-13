@@ -1,4 +1,4 @@
-Package Main;
+package Main;
 
 public class EnemyBoss {
 	/*
