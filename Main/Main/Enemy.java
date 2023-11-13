@@ -100,8 +100,9 @@ public class Enemy {
 			dmg=ed.wholeMoves(type);
 		}else if(area.equals("boss")) {
 			System.out.println(hp);
+			//dmg and dmgType re-initialization switched here because dmgType changes per move for this enemy only
+			dmg=eb.wholeMoves(type); 
 			dmgType=eb.getDmgType();
-			dmg=eb.wholeMoves(type);
 		}
 		return dmg;
 	}
