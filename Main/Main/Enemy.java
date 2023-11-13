@@ -86,9 +86,9 @@ public class Enemy {
 			dmgType=ed.getDmgType();
 			dmg=ed.wholeMoves(type);
 		}else if(area.equals("under")) {
-			//System.out.println(hp);
-			//dmgType=ed.getDmgType();
-			//dmg=ed.wholeMoves(type);
+			System.out.println(hp);
+			dmgType=ed.getDmgType();
+			dmg=ed.wholeMoves(type);
 		}
 		return dmg;
 	}
