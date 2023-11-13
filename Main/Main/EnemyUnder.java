@@ -37,7 +37,6 @@ public class EnemyUnderworld {
 		magRes = 3;
 		physRes = 6;
 		xp=99999;
-		dmgType = yourType;
 	}
 	
 	public String getName() {
@@ -92,12 +91,13 @@ public class EnemyUnderworld {
 	}
 	
 	// attack on yourself: slash/fireball
-	String oppositeType = "phys";
 	public int oppositeMoves () {
 		int dmg = 0;
 		if (m.percentRoller(50)) {
+			dmgType="phys";
 			dmg = slash;
 		} else if {
+			dmgType="magi";
 			dmg = fireBall;
 		}
 		return dmg;
