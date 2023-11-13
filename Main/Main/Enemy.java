@@ -9,6 +9,7 @@ public class Enemy {
 	private EnemyGrass eg = new EnemyGrass();
 	private EnemyDesert ed = new EnemyDesert();
 	private EnemyUnder eu = new EnemyUnder();
+	private enemyBoss eb=new enemyBoss();
 	
 	
 	public Enemy(int areaInit) {
@@ -39,7 +40,15 @@ public class Enemy {
 			physRes=eu.getPhysRes();
 			magRes=eu.getMagRes();
 			type=eu.getType();
-			xp = eg.getXP();
+			xp = eu.getXP();
+		}else if {
+			area = "boss";
+			name=eb.getName();
+			hp=eb.getHP();
+			physRes=eb.getPhysRes();
+			magRes=eb.getMagRes();
+			type=eb.getType();
+			xp = eb.getXP();
 		}
 	}
 	public int getXP() {
@@ -89,6 +98,10 @@ public class Enemy {
 			System.out.println(hp);
 			dmgType=ed.getDmgType();
 			dmg=ed.wholeMoves(type);
+		}else if(area.equals("boss")) {
+			System.out.println(hp);
+			dmgType=eb.getDmgType();
+			dmg=eb.wholeMoves(type);
 		}
 		return dmg;
 	}
