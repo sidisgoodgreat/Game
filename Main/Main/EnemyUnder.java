@@ -82,9 +82,9 @@ public class EnemyUnderworld {
 		return 6;
 	}
 	public int demonCurse () {
-		if (m.percentRoller (30)) {
+		if (m.percentRoller (10)) {
 			System.out.println("The demon cursed you!"); //meant to be a one shot kill
-			return 20;
+			return 50;
 		} else {
 			System.out.println("The demon tried to curse you but missed!");
 			return 0;
