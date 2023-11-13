@@ -25,6 +25,8 @@ public class Overworld {
 	
 	public void game() {
 		begin();
+		boolean gameWon = false;
+		while(!gameWon){
 		while (getStep() <= 15) {
 			
 			String input = promptUser(player1.getLevel(), navigateArea() );
@@ -61,6 +63,10 @@ public class Overworld {
 			
 			// to do: add an ending!!! and maybe an introduction cus we cool like that B )
 	
+		}
+			Enemy boss = new Enemy(player1);
+			CombatEncounter bossFight = new CombatEncounter(boss,player1);
+			bossFight.mainCombat();
 		}
 		// Ending Text
 		//very cliche - Ethan
