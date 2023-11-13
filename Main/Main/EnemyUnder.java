@@ -13,56 +13,98 @@ public class EnemyUnder {
 	public EnemyUnder () {//demons
 		initDemon();
 	}
+	// Sets values for demon enemy
 	public void initDemon () {
-		name = "demon";
-		hp = 4;
-		maxHP = 4;
+
+		name= "demon";
+		hp = 20;
+		maxHP = 20;
 		magRes = .4;
 		physRes = .7;
 		xp=200;
 		dmgType = demonType;
 	}
 	
+	/**
+	 * @return name
+	 */
 	public String getName() {
 		return name;
 	}
+	/**
+	 * @return hp
+	 */
 	public int getHP () {
 		return hp;
 	}
+	/**
+	 * @return magRes
+	 */
 	public double getMagRes() {
 		return magRes;
 	}
+	/**
+	 * @return physRes
+	 */
 	public double getPhysRes() {
 		return physRes;
 	}
+	/**
+	 * @return type
+	 */
 	public int getType() {
 		return type;
 	}
+	/**
+	 * @return dmgType
+	 */
 	public String getDmgType() {
 		return dmgType;
 	}
+	/**
+	 * @return xp
+	 */
 	public int getXP() {
 		return xp;
 	}
+	// Mutator methods
+	
+	/**
+	 * @param String initName
+	 */
 	public void setName (String initName) {
 		name =  initName;
 	}
+	/**
+	 * @param int initHP
+	 */
 	public void setHP (int initHP) {
 		hp = initHP;
 	}
+	/**
+	 * @param int initMagRes
+	 */
 	public void setMagRes (int initMagRes) {
 		magRes = initMagRes;
 	}
+	/**
+	 * @param int initPhysRes
+	 */
 	public void setPhysRes (int initPhysRes) {
 		physRes = initPhysRes;
 	}
+	/**
+	 * @param String initName
+	 */
 	public int wholeMoves(int type) {
 		int dmg = 0;
 		dmg=demonMoves();
 		return dmg;
 	}
+	
 	// attacks
 	String demonType = "magi";
+	// changes dmg int according to the move used
 	public int demonMoves () {
 		int dmg = 0;
 		if (m.percentRoller (60) || hp == maxHP) {
@@ -72,10 +114,18 @@ public class EnemyUnder {
 		}
 		return dmg;
 		}
+	/**
+	 * Outputs flavor text and gives back dmg value
+	 * @return int 6
+	 */
 	public int demonStrike () {
 		System.out.println("Demon strikes at you!");
 		return 6;
 	}
+	/**
+	 * Outputs flavor text and gives back a value that changes according to random
+	 * @return int 0 or int 50 
+	 */
 	public int demonCurse () {
 		if (m.percentRoller (10)) {
 			System.out.println("The demon cursed you!"); //meant to be a one shot kill
