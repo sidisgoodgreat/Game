@@ -13,11 +13,7 @@ public class EnemyUnderworld {
 	public EnemyUnderworld () {
 		type = (int) (Math.random() * 2 ) +1;
 		if (type ==1) { //demons
-			name = "demon";
-			hp = 3;
-			maxHP = 3;
-			magRes = 5;
-			physRes = 4;
+			initDemon();
 		}
 	}
 	public EnemyUnderworld(int type) {
@@ -29,8 +25,8 @@ public class EnemyUnderworld {
 		name "demon";
 		hp = 4;
 		mapHP = 4;
-		magRes = 6;
-		physRes = 2;
+		magRes = .4;
+		physRes = .7;
 		dmgType = demonType;
 	}
 	public void initYourself () {
