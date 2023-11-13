@@ -14,7 +14,7 @@ public class EnemyUnder {
 		initDemon();
 	}
 	public void initDemon () {
-		name= "demon";
+		name = "demon";
 		hp = 4;
 		maxHP = 4;
 		magRes = .4;
@@ -37,6 +37,9 @@ public class EnemyUnder {
 	}
 	public int getType() {
 		return type;
+	}
+	public String getDmgType() {
+		return dmgType;
 	}
 	public int getXP() {
 		return xp;
@@ -61,11 +64,11 @@ public class EnemyUnder {
 	// attacks
 	String demonType = "magi";
 	public int demonMoves () {
-		int dmg=0;
+		int dmg = 0;
 		if (m.percentRoller (60) || hp == maxHP) {
 			dmg = demonStrike ();
 		} else {
-			dmg=demonCurse();
+			demonCurse();
 		}
 		return dmg;
 		}

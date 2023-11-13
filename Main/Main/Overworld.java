@@ -41,17 +41,13 @@ public class Overworld {
 			}
 
 			// add rando chance of fight and all that stuff here
-			boolean wonFight=true;
+			boolean wonFight = false;
 			if (getStep() > 0) {
 				//Roll for a combat encounter
 				if(m.percentRoller(60)) {
 					Enemy e = new Enemy(step);
 					CombatEncounter ce = new CombatEncounter(e,player1);
-					if(ce.mainCombat()) {
-						player1.levelUp();
-					} else {
-						lostFight();
-					}
+					wonFight=ce.mainCombat();
 				}
 				navigateArea();
 			} else {
@@ -60,8 +56,7 @@ public class Overworld {
 
 			// if lost/won... get back here to this class!
 			// if you lose you restart hahahaha
-			
-			
+			lostFight(!wonFight);
 			
 			// to do: add an ending!!! and maybe an introduction cus we cool like that B )
 	
@@ -69,13 +64,7 @@ public class Overworld {
 			Enemy boss = new Enemy(player1);
 			CombatEncounter bossFight = new CombatEncounter(boss,player1);
 			gameWon=bossFight.mainCombat();
-			if(gameWon) {
-				player1.levelUp();
-			} else {
-				lostFight();
-			}
-			
-			
+			lostFight(!gameWon);
 		}
 		// Ending Text
 		//very cliche - Ethan
@@ -90,10 +79,12 @@ public class Overworld {
 			System.out.println("-- END --");
 	}
 
-	public void lostFight(){
+	public void lostFight(boolean lost){
+		if(lost){
 			setStep(0);
 			System.out.println("You hurriedly retreat back to your house after a tragic defeat!");
 			System.out.println("Time to come back stronger...");
+		}
 	}
 	
 	public String navigateArea() {
