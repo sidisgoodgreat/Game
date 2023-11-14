@@ -227,7 +227,7 @@ public class Player {
 	public void drinkPot() {
 		int healAmount = (int)(5*dmgMult);
 		if(hp+healAmount>maxHP){
-			healAmount = maxpHP-hp;
+			healAmount = maxHP-hp;
 		}
 		if(hpPotCount>0) {
 			hp+=healAmount;
