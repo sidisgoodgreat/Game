@@ -172,14 +172,10 @@ public class Player {
 		}
 	}
 	
-	/*
-	 * Moveset
-	 * Slash
-	 * Stab
-	 * Fireball
-	 * Healing Potion
-	 *Resistances
-	 *
+	/**
+	 * Runs a move based on the argument passed
+  	 * @param choice - The choice made by the player, taken from a previous input
+    	 * @return dmg dealt by the move run by the method, according to the choice
 	 */
 	public int moveRunner(int choice) {
 		int dmg=0;
@@ -201,12 +197,20 @@ public class Player {
 	
 	
 	String type0="phys";
+	/**
+	* Slash move for the player, displays flavor text
+ 	* @return damage dealth by the player from the move
+	*/
 	public int slash() {
    		int dmg= 2*m.crit(20,2);
    		System.out.println("You slash with your sword!\n");
    		return (int)(dmg*dmgMult);
 	}
 	String type1="phys";
+	/**
+	* Stab move for the player, displays flavor text
+ 	* @return damage dealth by the player from the move
+	*/
 	public int stab() {
 		int dmg = 0;
 		if(m.percentRoller(60)) {
@@ -217,6 +221,10 @@ public class Player {
 		}
 		return (int)(dmg*dmgMult);
 	}
+	/**
+	* Fireball move for the player, displays flavor text
+ 	* @return damage dealth by the player from the move
+	*/
 	String type2="magi";
 	public int fireball() {
 		int dmg= 3;
@@ -224,6 +232,9 @@ public class Player {
 		return (int)(dmg*dmgMult);
 	}
 	String type3="self";
+	/**
+	* Heals the player by an amount calculated by the method, displays flavor text
+	*/
 	public void drinkPot() {
 		int healAmount = (int)(5*dmgMult);
 		if(hp+healAmount>maxHP){
