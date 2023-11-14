@@ -197,10 +197,12 @@ public class Player {
 		}
 		return dmg;
 	}
+	
+	
 	String type0="phys";
 	public int slash() {
    		int dmg= 2*m.crit(20,2);
-   		System.out.println("You slash with your sword!");
+   		System.out.println("You slash with your sword!\n");
    		return (int)(dmg*dmgMult);
 	}
 	String type1="phys";
@@ -208,16 +210,16 @@ public class Player {
 		int dmg = 0;
 		if(m.percentRoller(60)) {
 			dmg= 2*m.crit(50,3);
-			System.out.println("You stab with your sword!");
+			System.out.println("You stab with your sword!\n");
 		} else {
-			System.out.println("You miss your stab!");
+			System.out.println("You miss your stab!\n");
 		}
 		return (int)(dmg*dmgMult);
 	}
 	String type2="magi";
 	public int fireball() {
 		int dmg= 3;
-		System.out.println("You throw a fireball!");
+		System.out.println("You throw a fireball!\n");
 		return (int)(dmg*dmgMult);
 	}
 	String type3="self";
@@ -225,10 +227,10 @@ public class Player {
 		int healAmount = (int)(5*dmgMult);
 		if(hpPotCount>0) {
 			hp+=healAmount;
-			System.out.println("You drink the healing potion. "+healAmount+" hp healed!");
+			System.out.println("You drink the healing potion. "+healAmount+" hp healed!\n");
 			hpPotCount--;
 		} else {
-			System.out.println("out of pots!");
+			System.out.println("out of pots!\n");
 		}
 		
 	}

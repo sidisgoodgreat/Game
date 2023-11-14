@@ -43,29 +43,30 @@ public class Overworld {
 	public void game() {
 		begin();
 		boolean gameWon = false;
+		
 		while(!gameWon){
-		while (getStep() <= 15) {
-			
-			String input = promptUser(player1.getLevel(), navigateArea() );
-			
-			if (input.equals( "^")) {
-				addStep();
-			} else if (input.equals("v")&&getStep() > 0) {
-				subStep();
-			}
-
-			// add rando chance of fight and all that stuff here
-			boolean wonFight = false;
-			if (getStep() > 0) {
-				//Roll for a combat encounter
-				if(m.percentRoller(60)) {
-					Enemy e = new Enemy(step);
-					CombatEncounter ce = new CombatEncounter(e,player1);
-					wonFight=ce.mainCombat();
-				}
-				navigateArea();
-			} else {
-				System.out.println("\nYou cannot go back any further!");
+			while (getStep() <= 15) {
+				
+				String input = promptUser(player1.getLevel(), navigateArea() );
+				
+				if (input.equals( "^")) { addStep();
+				} else if (input.equals("v")&&getStep() > 0) { subStep();	}
+	
+				// add rando chance of fight and all that stuff here
+				boolean wonFight = false;
+				if (getStep() > 0) {
+					//Roll for a combat encounter
+					if(m.percentRoller(60)) {
+						Enemy e = new Enemy(step);
+						CombatEncounter ce = new CombatEncounter(e,player1);
+						wonFight=ce.mainCombat();
+						if (!wonFight) {
+							lostFight();
+						}
+					} else { System.out.println("You encountered nothing!"); }
+					navigateArea();
+				} else {
+					System.out.println("\nYou cannot go back any further!");
 			}
 
 			// if lost/won... get back here to this class!
@@ -101,7 +102,7 @@ public class Overworld {
 	public void lostFight(){
 			setStep(0);
 			System.out.println("You hurriedly retreat back to your house after a tragic defeat!");
-			System.out.println("Time to come back stronger...");
+			System.out.println("Time to come back stronger...\n");
 		}
 	
 	/**

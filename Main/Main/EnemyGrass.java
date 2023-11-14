@@ -12,7 +12,7 @@ public class EnemyGrass {
 	private double magRes,physRes;
 	private Misc m = new Misc();
 
-	// Constructor that has 2 possible types
+	// Constructor that picks 1 out of 2 possible types of enemies
 	// Selects specific type according to chance
 	public EnemyGrass() {
 		type=(int)(Math.random()*2)+1;
@@ -128,8 +128,8 @@ public class EnemyGrass {
 		}
 		return dmg;
 	}
-	//Slime Attacks: Strike and Heal?
-	String slimeType="magi";
+	// Plays a specific attack/heal method depending on chance (slimeHeal or slimeStrike)
+	String slimeType = "mag";
 	public int slimeMoves() {
 		int dmg=0;
 		if(m.percentRoller(70)||hp==maxHP) {
@@ -139,7 +139,10 @@ public class EnemyGrass {
 		}
 		return dmg;
 	}
-	//
+	/**
+	 * Outputs flavor text and gives back dmg value
+	 * @return int 3
+	 */
 	public int slimeStrike() {
 		System.out.println("The Slime strikes!");
 		return 3;
@@ -152,8 +155,7 @@ public class EnemyGrass {
 			hp++;
 		}
 	}
-	//Wolf Attacks: Bite and Jugular
-	
+	// Plays a specific attack/heal method depending on chance (wolfBite or wolfJug)
 	String wolfType="phys";
 	public int wolfMoves() {
 		int dmg = 0;
