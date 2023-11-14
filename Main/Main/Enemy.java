@@ -30,6 +30,20 @@ public class Enemy {
 			initUnder();
 		}
 	}
+	/**
+ 	* Constructor if given a player Object, initializes the boss enemy class and assigns instance variables
+  	* the corresponding values
+  	*/
+	public Enemy(Player p){
+		eb = new EnemyBoss(p);
+			area = "boss";
+			name=eb.getName();
+			hp=eb.getHP();
+			physRes=eb.getPhysRes();
+			magRes=eb.getMagRes();
+			type=eb.getType();
+			xp = eb.getXP();
+		}
 	
 	// initializes inst variables according to enemy taken from Underworld class
 	public void initUnder() {
@@ -63,16 +77,7 @@ public class Enemy {
 		xp = eg.getXP();
 	}
 	
-	public Enemy(Player p){
-		eb = new EnemyBoss(p);
-			area = "boss";
-			name=eb.getName();
-			hp=eb.getHP();
-			physRes=eb.getPhysRes();
-			magRes=eb.getMagRes();
-			type=eb.getType();
-			xp = eb.getXP();
-		}
+	
 	//Accessor methods
 
 	/**
@@ -144,44 +149,61 @@ public class Enemy {
 		physRes=init;
 	}
 	
-	//Chooses an enemy run method according to the area
+	/**
+	* Runs the move of the Enemy Class based on what area the enemy is from
+ 	* @return damage dealt by the 
+	*/
 	public int moveRunner() {
 		dmg=0;
 		if(area.equals("gLands")) {
-			runGrass();
+			dmg=runGrass();
 		} else if(area.equals("desert")) {
-			runDesert();
+			dmg=runDesert();
 		}else if(area.equals("under")) {
-			runUnder();
+			dmg=runUnder();
 		}else if(area.equals("boss")) {
-			runBoss();
+			dmg=runBoss();
 		}
 		return dmg;
 	}
 	
-	//Methods that respectively changes instance variables according to enemy statistics
-	//Happens when enemy does a move
-	public void runGrass() {
+	/**
+	* Runs move for the specified area enemy
+ 	* @return dmg from the wholeMoves method of the specified area enemy Class
+	*/
+	public int runGrass() {
 		System.out.println(eg.getName() + " is at " + hp + " HP left!\n");
 		dmgType=eg.getDmgType();
-		dmg=eg.wholeMoves(type);
+		
+		return eg.wholeMoves(type);
 	}
-	public void runDesert() {
+	/**
+	* Runs move for the specified area enemy
+ 	* @return dmg from the wholeMoves method of the specified area enemy Class
+	*/
+	public int runDesert() {
 		System.out.println(ed.getName() + " is at " + hp + " HP left!\n");
 		dmgType=ed.getDmgType();
-		dmg=ed.wholeMoves(type);
+		return ed.wholeMoves(type);
 	}
-	
-	public void runUnder() {
+	/**
+	* Runs move for the specified area enemy
+ 	* @return dmg from the wholeMoves method of the specified area enemy Class
+	*/
+	public int runUnder() {
 		System.out.println(eu.getName() + " is at " + hp + " HP left!\n");
 		dmgType=eu.getDmgType();
-		dmg=eu.wholeMoves(type);
+		return eu.wholeMoves(type);
 	}
-	
-	public void runBoss() {
+	/**
+	* Runs move for the specified area enemy
+ 	* @return dmg from the wholeMoves method of the specified area enemy Class
+	*/
+	public int runBoss() {
 		System.out.println("You're at " + hp + "HP left!\n");
 		//dmg and dmgType re-initialization switched here because dmgType changes per move for this enemy only
-		dmg=eb.wholeMoves(); 
+		int dmg=eb.wholeMoves(); 
 		dmgType=eb.getDmgType();
+		return dmg;
 	}
 }
