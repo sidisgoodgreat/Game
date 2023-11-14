@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Player {
 	private String name,dmgType;
-	private int hp=20, maxHP=20,level=1, xp=0,xpNeeded = 100,hpPotCount=3;
+	private int hp=20, maxHP=20,level=1, xp=0,xpNeeded = 100,hpPotCount=30;
 	private double dmgMult=1,physRes = 1, magRes=1;
 	
 	private String moveDisplay="0: Slash"
