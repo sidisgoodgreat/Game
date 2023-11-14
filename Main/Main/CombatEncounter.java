@@ -33,8 +33,8 @@ public class CombatEncounter {
 		System.out.println("You encounter a(n) "+e.getName()+"!");
 		cycleBattle();
 		int xpGet = 0;
-		
-		if(playerAlive()) {
+		boolean wonFight = playerAlive();
+		if(wonFight) {
 			System.out.println("You win!");
 			xpGet = e.getXP();
 		} else {
@@ -42,7 +42,7 @@ public class CombatEncounter {
 		}
 		p.setHP(p.getMaxHP());
 		p.addXP(xpGet);
-		return playerAlive();
+		return wonFight;
 	}
 	
 	// runs the battle until either enemy or player dies
