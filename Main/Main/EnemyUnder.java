@@ -1,6 +1,7 @@
 package Main;
 public class EnemyUnder {
 	/*
+ 	 * Instance variables
 	 * Types of Enemies
 	 * Demon
 	 * Yourself
