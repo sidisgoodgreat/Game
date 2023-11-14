@@ -226,6 +226,9 @@ public class Player {
 	String type3="self";
 	public void drinkPot() {
 		int healAmount = (int)(5*dmgMult);
+		if(hp+healAmount>maxHP){
+			healAmount = maxpHP-hp;
+		}
 		if(hpPotCount>0) {
 			hp+=healAmount;
 			System.out.println("You drink the healing potion. "+healAmount+" hp healed!\n");
