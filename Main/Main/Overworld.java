@@ -53,21 +53,21 @@ public class Overworld {
 				} else if (input.equals("v")&&getStep() > 0) { subStep();	}
 	
 				// add rando chance of fight and all that stuff here
-				boolean wonFight = false;
 				if (getStep() > 0) {
-					//Roll for a combat encounter
-					if(m.percentRoller(60)) {
-						Enemy e = new Enemy(step);
-						CombatEncounter ce = new CombatEncounter(e,player1);
-						wonFight=ce.mainCombat();
-						if (!wonFight) {
-							lostFight();
-						}
-					} else { System.out.println("You encountered nothing!"); }
+				//Roll for a combat encounter
+				if(m.percentRoller(60)) {
+					Enemy e = new Enemy(step);
+					CombatEncounter ce = new CombatEncounter(e,player1);
+					if(ce.mainCombat()) {
+						player1.levelUp();
+					} else {
+						lostFight();
+					}
+				}
 					navigateArea();
 				} else {
 					System.out.println("\nYou cannot go back any further!");
-			}
+				}
 
 			// if lost/won... get back here to this class!
 			// if you lose you restart hahahaha
@@ -79,6 +79,11 @@ public class Overworld {
 			Enemy boss = new Enemy(player1);
 			CombatEncounter bossFight = new CombatEncounter(boss,player1);
 			gameWon=bossFight.mainCombat();
+			if(gameWon) {
+				player1.levelUp();
+			} else {
+				lostFight();
+			}
 			//lostFight(!gameWon);
 		}
 		// Ending Text
