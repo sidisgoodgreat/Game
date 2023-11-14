@@ -11,23 +11,10 @@ public class CombatEncounter {
 		this.p = p;
 		this.e= e;
 	}
-	/*
-	 * while loop until either player or enemy is dead
-	 * 
-	 * Player chooses their move
-	 * Move is run
-	 * Damage is run through resistances
-	 * Damage is applied
-	 * 
-	 * Enemy makes move based off rng
-	 * Move is run, resitances
-	 * damage applied
-	 * 
-	 * Repeat until one person is dead
-	 *
-	 * Detect whether player is alive or not, calls a method that returns bool
-	 */ 
-	//returns true if player wins the battle
+	/**
+ 	* Main combat cycle that repeats until either enemy or player is dead
+  	* @return wonFight - true if the player's health is above 0, false otherwise
+  	*/
 	public boolean mainCombat() {
 		art();
 		System.out.println("You encounter a(n) "+e.getName()+"!");
@@ -59,7 +46,9 @@ public class CombatEncounter {
 		}
 	}
 	
-	// Outputs what the player should choose then waits until player places a valid input
+	/**
+ 	*Prompts user for input, then runs the method damageDealer with the input
+  	*/
 	public void playerCombatCycle() {
 		System.out.println(p+
 				   "\nChoose your move!"+
@@ -77,9 +66,9 @@ public class CombatEncounter {
 	/**
 	 * Calculates how much damage player OR enemy should take
 	 * according to opposing move
-	 * @param isPlayer
-	 * @param dmg
-	 * @param dmgType
+	 * @param isPlayer - If true, then dealas damage to enemy and uses enemy reistances
+	 * @param dmg - value of the damage being dealt
+	 * @param dmgType - Type of damage, either "magi" or "phys"
 	 */
 	public void damageDealer(boolean isPlayer, int dmg,String dmgType) {
 		int actDmg=dmg;
