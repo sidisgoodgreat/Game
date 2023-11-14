@@ -194,6 +194,7 @@ public class Player {
 			dmg=fireball();
 		} else {
 			drinkPot();
+			dmg=0;
 		}
 		return dmg;
 	}
