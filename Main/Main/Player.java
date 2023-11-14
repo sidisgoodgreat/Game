@@ -3,6 +3,7 @@ package Main;
 import java.util.Scanner;
 
 public class Player {
+	// instance variables
 	private String name,dmgType;
 	private int hp=20, maxHP=20,level=1, xp=0,xpNeeded = 100,hpPotCount=30;
 	private double dmgMult=1,physRes = 1, magRes=1;
