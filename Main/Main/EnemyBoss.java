@@ -17,7 +17,7 @@ public class EnemyBoss {
 		magRes = p.getMagRes();
 		physRes = p.getPhysRes();
 		dmgMult=p.getDmgMult();
-		xp=99999;
+		xp=0;
 	}
 	
 	//Accessor methods
