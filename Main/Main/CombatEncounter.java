@@ -40,7 +40,6 @@ public class CombatEncounter {
 		} else {
 			System.out.println("You died!");
 		}
-		
 		p.setHP(p.getMaxHP());
 		p.addXP(xpGet);
 		p.levelUp();
